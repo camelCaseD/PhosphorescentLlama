@@ -46,8 +46,6 @@ app.controller( 'ViewController', [ '$scope', '$timeout', '$rootScope', function
 
 		$scope.won = true;
 
-		console.log('i am here');
-
 	});
 
 

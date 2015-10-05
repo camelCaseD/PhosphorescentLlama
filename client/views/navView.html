@@ -16,7 +16,8 @@
       <ul class="nav navbar-nav">
         <li ng-click="playerSequencerPlayToggle( )">
           <a href="#">
-            <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-play" aria-hidden="true" ng-show="playing" ng-click="playOrStop()"></span>
+            <span class="glyphicon glyphicon-stop" aria-hidden="true" ng-show="!playing" ng-click="playOrStop()"></span>
           </a>
         </li>
         <li ng-click="targetSequencerPlayToggle( )">
@@ -31,7 +32,7 @@
         </li>
       </ul>
 
-      <form class="navbar-form navbar-left" name="loginForm">
+      <form class="navbar-form navbar-right" name="loginForm">
         <div class="user-info-form">
           <input required type='text' class="form-control" ng-model='user.username' id="username" placeholder="Username"/>
           <input required type='password' class="form-control" ng-model='user.password' id="password" placeholder="Password"/>

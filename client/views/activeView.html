@@ -16,12 +16,13 @@
       <ul class="nav navbar-nav">
         <li ng-click="playerSequencerPlayToggle( )">
           <a href="#">
-            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-play" aria-hidden="true" ng-show="playing" ng-click="playOrStop()"></span>
+            <span class="glyphicon glyphicon-stop" aria-hidden="true" ng-show="!playing" ng-click="playOrStop()"></span>
           </a>
         </li>
         <li ng-click="targetSequencerPlayToggle( )">
           <a href="#">
-            <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
           </a>
         </li>
         <li ng-click="submitMatch( )">
@@ -31,11 +32,13 @@
         </li>
       </ul>
       <div class="user-info-group">
-      <ul class="nav navbar-nav">
-        <li><p class="navbar-brand navbar-right" id="display-username">Signed in as {{ user.username }}.</p></li>
-        <li><p class="navbar-brand navbar-right" id="display-level">Level {{ user.level }}</p></li>
-        <li><button class="btn btn-default navbar-text navbar-right" ng-click="logout( )" id="display-logout">Logout</button></li>
-      </ul>
+        <div class="nav navbar-right">
+          <span id="space"></span>
+          <div id="display-username">
+            <h2>{{ user.username }}. Level: {{ user.level }}</h2>
+            <button class="btn btn-default" ng-click="logout( )" id="display-logout">Logout</button>
+          </div>
+        </div>
       </div>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

@@ -1,0 +1,30 @@
+{
+  "name": "client",
+  "version": "0.0.0",
+  "homepage": "https://github.com/PhosphorescentLlama/PhosphorescentLlama",
+  "authors": [
+    "Naomi Jacobs",
+    "Kyle Cho",
+    "Jordan Olthoff",
+    "Rodrigo Delgado"
+  ],
+  "description": "Parrot",
+  "main": "[app/app.js]",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.6",
+    "angular-ui-router": "~0.2.15",
+    "bootstrap": "~3.3.5",
+    "jquery": "~2.1.4",
+    "underscore": "~1.8.3",
+    "angular-animate": "~1.4.7",
+    "jquery": "~2.1.4"
+  }
+}

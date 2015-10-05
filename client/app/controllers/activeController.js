@@ -11,7 +11,7 @@ app.controller( 'ActiveController', ['$scope', 'httpFactory', '$rootScope', '$lo
         $location.path( response.data );
 
         $rootScope.$broadcast( 'destroySequencers' );
-        
+
       }
 
     });
@@ -32,7 +32,27 @@ app.controller( 'ActiveController', ['$scope', 'httpFactory', '$rootScope', '$lo
 
   $scope.submitMatch = function ( ) {
 
-    $rootScope.$broadcast( 'submitMatch' )
+    $rootScope.$broadcast( 'submitMatch' );
+
+  };
+
+  $scope.playing = true;
+
+  $scope.playOrStop = function ( ) {
+
+    if ($scope.playing) {
+
+      $scope.playing = false;
+
+      return $scope.playing;
+
+    } else {
+
+      $scope.playing = true;
+
+      return $scope.playing;
+
+    }
 
   };
 

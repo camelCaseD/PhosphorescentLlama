@@ -77,6 +77,14 @@ app.controller( 'PlayerSequencerController', [ '$scope', 'playerSequencer', '$ti
 
       $scope.stop( );
 
+      for( var i = 0; i < $scope.tickNumber; i++ ) {
+
+        var unselector = '.' + i;
+
+        angular.element(unselector).removeClass('current');
+
+      }
+
     } else {
 
       $scope.sequencer.play( $scope.animateLoop );
@@ -130,7 +138,8 @@ app.controller( 'PlayerSequencerController', [ '$scope', 'playerSequencer', '$ti
 
     $scope.sequencer.toggleBeat( sequenceIndex, beatIndex );
 
-    var beat = $scope.sequencer.getBeat( sequenceIndex, beatIndex ).play( 0 );
+    // Plays beat when clicked
+    // var beat = $scope.sequencer.getBeat( sequenceIndex, beatIndex ).play( 0 );
 
   };
 

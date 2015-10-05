@@ -1,5 +1,5 @@
 app.controller('NavController', [ '$scope', 'httpFactory', '$rootScope', '$location' , function ( $scope, httpFactory, $rootScope, $location ) {
-  
+
   $scope.login = function ( ) {
 
     httpFactory.loginUser( $scope.user, function ( response ) {
@@ -54,9 +54,28 @@ app.controller('NavController', [ '$scope', 'httpFactory', '$rootScope', '$locat
 
   $scope.submitMatch = function ( ) {
 
-    $rootScope.$broadcast( 'submitMatch' )
+    $rootScope.$broadcast( 'submitMatch' );
 
   };
 
+  $scope.playing = true;
+
+  $scope.playOrStop = function ( ) {
+
+    if ($scope.playing) {
+
+      $scope.playing = false;
+
+      return $scope.playing;
+
+    } else {
+
+      $scope.playing = true;
+
+      return $scope.playing;
+
+    }
+
+  };
 
 }]);

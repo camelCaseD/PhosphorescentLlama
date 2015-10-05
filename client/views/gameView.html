@@ -1,6 +1,6 @@
 <div class="gameSpace">
 
-    <div class="targetSequencer" ng-controller="TargetSequencerController"></div>
+    <div class="targetSequencer padding-{{ numSequencers }}" ng-controller="TargetSequencerController"></div>
 
     <div class="playerSequencer" ng-controller="PlayerSequencerController">
 
@@ -42,7 +42,7 @@
         <input type="text" placeholder="number of beats" name="beats" ng-model="inputBeats"></input>
 
         <input type="text" placeholder="sounds" name="sounds" ng-model="inputSounds"></input>
-        
+
       </div>
 
       <button class="submit" ng-click="createSequencer( )">Create a Sequencer</button>
