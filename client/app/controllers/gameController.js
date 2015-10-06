@@ -126,19 +126,7 @@ app.controller( 'GameController' , [ '$scope', 'playerSequencer', 'httpFactory',
 
     $scope.$emit( 'notAMatch' );
 
-    // $scope.removeWrongBeats( );
-
   };
-
-  // $scope.removeWrongBeats = function ( ) {
-
-  //   var wrongBeats = $scope.playerSequencer.getWrongBeats( $scope.targetSequencer );
-
-  //   $scope.$broadcast( 'toggleWrongBeatsOff', wrongBeats );
-
-  // };
-
-
 
   /////////////////
   //
@@ -191,8 +179,6 @@ app.controller( 'GameController' , [ '$scope', 'playerSequencer', 'httpFactory',
   //
   //
   ////////////////////
-
-  // $scope.startLevel( );
 
   initialize( $scope.startLevel );
 

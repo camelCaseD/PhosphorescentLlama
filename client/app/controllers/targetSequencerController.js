@@ -1,5 +1,59 @@
 app.controller( 'TargetSequencerController', [ '$scope', '$timeout' , function (  $scope, $timeout ) {
 
+  /////////////////
+  //
+  //
+  // FUNCTIONS
+  //
+  //
+  /////////////////
+
+  $scope.playToggle = function ( ) {
+
+    if ( $scope.sequencer._playing ) {
+
+      $scope.sequencer.stop( );
+
+    } else {
+
+      $scope.sequencer.play( );
+
+      $scope.$emit( 'targetSequencerPlaying' );
+
+    }
+
+  };
+
+  $scope.playTwice = function ( time ) {
+
+    $timeout( function( ) {
+
+      $scope.loopTick++;
+
+      if( ( $scope.loopTick % $scope.sequencer.getTickNumber() ) === 0 ) {
+
+        $scope.count++;
+
+      }
+
+      if( $scope.count === 2 ) {
+
+        $scope.sequencer.stop( );
+
+      }
+
+    }, time );
+
+  };
+  
+  /////////////////
+  //
+  //
+  // EVENT HANDLERS
+  //
+  //
+  /////////////////
+
   //listens for event and creates targetSequencer from server data
   //sends targetSequencer back to gameController
   $scope.$on( 'createTargetSequencer', function( event, response ) {
@@ -48,42 +102,5 @@ app.controller( 'TargetSequencerController', [ '$scope', '$timeout' , function (
 
   });
 
-  $scope.playToggle = function ( ) {
-
-    if ( $scope.sequencer._playing ) {
-
-      $scope.sequencer.stop( );
-
-    } else {
-
-      $scope.sequencer.play( );
-
-      $scope.$emit( 'targetSequencerPlaying' );
-
-    }
-
-  };
-
-  $scope.playTwice = function ( time ) {
-
-    $timeout( function( ) {
-
-      $scope.loopTick++;
-
-      if( ( $scope.loopTick % $scope.sequencer.getTickNumber() ) === 0 ) {
-
-        $scope.count++;
-
-      }
-
-      if( $scope.count === 2 ) {
-
-        $scope.sequencer.stop( );
-
-      }
-
-    }, time );
-
-  };
 
 }]);

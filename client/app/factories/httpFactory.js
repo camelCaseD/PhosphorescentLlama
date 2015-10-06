@@ -83,6 +83,7 @@ app.factory( 'httpFactory', [ '$http', function ( $http ) {
 
   };
 
+  //TERRIBLY NAMED - THIS UPDATES A USER'S BEST LEVEL, NOT THE LEVEL ITSELF
   requests.updateLevel = function ( user, callback ) {
 
     return $http.put( '/users', { username: user.username, level: user.level } )
