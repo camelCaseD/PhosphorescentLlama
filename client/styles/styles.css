@@ -1,4 +1,7 @@
+/* user level text after logging in */
+
 h2 {
+
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   font-size: 40px;
@@ -16,6 +19,9 @@ h2 {
   margin: 70px;
 
 }
+
+
+/* user and level text property */
 
 #user-name-level {
 
@@ -35,6 +41,9 @@ h2 {
 
 }
 
+
+/* play contols */
+
 .glyphicon {
 
   font-size: 50px;
@@ -48,12 +57,19 @@ h2 {
 }
 
 .glyphicon:hover {
+
   color: black;
+
 }
 
 .glyphicon:focus {
+
   color: black;
+
 }
+
+
+/* ngtzit text property */
 
 .navbar-brand {
 
@@ -105,73 +121,136 @@ h2 {
 
 }
 
+
 /* form style */
+
 .form-control {
+
   display: block;
+
   width: 70%;
+
   height: 40px;
+
   padding: 0px 20px;
+
   font-size: 14px;
+
   line-height: 1.42857143;
+
   color: #fff;
+
   background-color: #272822;
+
   border: 2px solid #ccc;
+
   border-radius: 4px;
+
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+
   -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+
        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
           transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-}
-.form-control:focus {
-  border-color: #66afe9;
-  outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
-          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+
 }
 
+.form-control:focus {
+
+  border-color: #66afe9;
+
+  outline: 0;
+
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+
+}
+
+
 /* button style */
+
 .btn {
+
   display: inline-block;
+
   padding: 7px 8px;
+
   margin-bottom: 0;
+
   font-size: 16px;
+
   font-weight: normal;
+
   line-height: 1.42857143;
+
   text-align: center;
+
   white-space: nowrap;
+
   vertical-align: middle;
+
   -ms-touch-action: manipulation;
+
       touch-action: manipulation;
+
   cursor: pointer;
+
   -webkit-user-select: none;
+
      -moz-user-select: none;
+
       -ms-user-select: none;
+
           user-select: none;
+
   background-image: none;
+
   border: 2px solid transparent;
+
   border-radius: 4px;
+
 }
+
 .btn-default {
+
   color: #fff;
+
   background-color: #272822;
+
   border-color: #ccc;
+
 }
+
 .btn-default:focus,
+
 .btn-default.focus {
+
   color: #fff;
+
   background-color: #272822;
+
   border-color: #8c8c8c;
+
 }
+
 .btn-default:hover {
+
   color: #fff;
+
   background-color: #272822;
+
   border-color: #adadad;
+
 }
 
 body {
 
   overflow-y: hidden;
+
   background-color: black;
 
 }
@@ -182,29 +261,45 @@ div {
 
 }
 
+
 /* paddings for game space */
+
 .padding-2 {
+
   padding: 7vh;
+
 }
 
 .padding-3 {
+
   padding: 5vh;
+
 }
 
+
 /* game alignment */
+
 .playerSequencer {
+
   margin: 0 auto;
+
   width: 90vw;
+
 }
 
 
 .wrong, .match, .won {
 
   line-height: 100vh;
+
   text-align: center;
+
   height: 100vh;
+
   width: 100vw;
+
   opacity: 0;
+
   transition: opacity .3s;
 
 }
@@ -217,6 +312,7 @@ div {
 .wrong.flash, .match.flash, .won.flash {
 
   opacity: 1;
+
   transition: opacity .3s;
 
 }
@@ -236,9 +332,13 @@ div {
 .match-message, .wrong-message, .won-message {
 
   display: inline-block;
+
   vertical-align: middle;
+
   line-height: normal;
+
   margin: auto;
+
   font-size: 10rem;
 
 }
@@ -264,7 +364,9 @@ div {
 .gameSpace {
 
   margin: 0 auto;
+
   width: 100vw;
+
   height: 100vw;
 
 }
@@ -272,6 +374,7 @@ div {
 .sequence {
 
   margin: auto;
+
   display: block;
 
 }
@@ -279,12 +382,14 @@ div {
 .sequence.four {
 
   height: 15vw;
+
   width: 60vw;
 }
 
 .sequencer.eight {
 
   height: 11vw;
+
   width: 88vw;
 
 }
@@ -292,6 +397,7 @@ div {
 .sequencer.sixteen {
 
   height: 11vw;
+
   width: 88vw;
 
 }
@@ -299,8 +405,11 @@ div {
 .beat {
 
   display: inline-block;
+
   margin: auto;
+
   text-align: center;
+
   background-color: black;
 
 }
@@ -308,6 +417,7 @@ div {
 .beat-box {
 
   width: 100%;
+
   height: 100%;
 
 }
@@ -315,6 +425,7 @@ div {
 .beat.four {
 
   width: 15vw;
+
   height: 15vw;
 
 }
@@ -322,6 +433,7 @@ div {
 .beat.eight {
 
   height: 11vw;
+
   width: 11vw;
 
 }
@@ -329,13 +441,17 @@ div {
 .beat.sixteen {
 
   height: 11vw;
+
   width: 5.5vw;
 
 }
 
 .line, .line.current, .line.current:hover,
+
 ._0, ._0:hover, ._0.playing,
+
 ._1, ._1:hover, ._1.playing,
+
 ._2, ._2:hover, ._2.playing {
 
   transition: height .1s, width .1s, margin .1s, opacity .1s;
@@ -345,8 +461,11 @@ div {
 .line {
 
   height: 98%;
+
   width: 98%;
+
   margin: 1% auto;
+
   overflow: hidden;
 
 }
@@ -354,8 +473,11 @@ div {
 .line.current:hover {
 
   height: 95%;
+
   width: 95%;
+
   margin: 2.5% auto;
+
   overflow: hidden;
 
 }
@@ -363,10 +485,12 @@ div {
 .line.current {
 
   height: 90%;
-  width: 90%;
-  margin: 5% auto;
-  overflow: hidden;
 
+  width: 90%;
+
+  margin: 5% auto;
+
+  overflow: hidden;
 
 }
 
