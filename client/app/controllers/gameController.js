@@ -1,4 +1,4 @@
-app.controller( 'GameController' , [ '$scope', 'playerSequencer', 'httpFactory', 'initialize', 'levelFactory', '$rootScope', '$timeout', function ( $scope, playerSequencer, httpFactory, initialize, levelFactory, $rootScope, $timeout ) {
+app.controller( 'GameController' , [ '$scope', 'playerSequencer', 'httpFactory', 'initialize', '$rootScope', '$timeout', function ( $scope, playerSequencer, httpFactory, initialize, $rootScope, $timeout ) {
 
   /////////////////
   //

@@ -264,6 +264,12 @@ div {
 
 /* paddings for game space */
 
+.padding-1 {
+
+  padding: 7vh;
+
+}
+
 .padding-2 {
 
   padding: 7vh;

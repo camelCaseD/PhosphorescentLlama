@@ -103,4 +103,22 @@ controller.findUserById = function( request, response, next ) {
 
 };
 
+controller.getUsers = function ( request, response, next ) {
+
+  User.find( {}, function ( error, users ) {
+
+    if( error ) {
+
+      response.status( 404 ).send( );
+
+    } else {
+
+      response.status( 200 ).send( users );
+
+    }
+
+  });
+
+};
+
 module.exports = controller;
