@@ -59,10 +59,12 @@ You don't even have to hit play. Just play!
 ### Installing Dependencies
 
 From within the root directory:
-
-```sh
-sudo npm install -g bower
+```
 npm install
+```
+
+From within the `/client` directory:
+```
 bower install
 ```
 
