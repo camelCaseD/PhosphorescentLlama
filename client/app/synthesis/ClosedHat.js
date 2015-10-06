@@ -18,17 +18,13 @@ AudioContext.prototype.createClosedHat = function( ) {
 
   var context = this;
 
-  var closedHat = {};
+  var closedHat = context.createSynthesizer( );
 
   ms = Math.pow( 10, -3 );
 
   closedHat.duration = 75 * ms;
 
-  closedHat.sustain = 0;
-
-  closedHat.envelopes = [];
-
-  closedHat.master = {};
+  closedHat.setSustain( 0 );
 
   // Create and configure closedHat.master.gain
 
@@ -181,55 +177,6 @@ AudioContext.prototype.createClosedHat = function( ) {
   */
 
   closedHat.noise.gain.connect( closedHat.master.input );
-
-  // Provide connect and start methods.
-
-  closedHat.connect = function( destination ) {
-
-    if( destination.hasOwnProperty( 'input' ) ) {
-
-      closedHat.master.output.connect( destination.input );
-
-    } else {
-
-      closedHat.master.output.connect( destination );
-
-    }
-
-  };
-
-    closedHat.disconnect = function( destination ) {
-
-    if( destination ) {
-
-      if( destination.hasOwnProperty( 'input' ) ) {
-
-        closedHat.master.output.disconnect( destination.input );
-
-      } else {
-
-        closedHat.master.output.disconnect( destination );
-
-      }
-
-    } else {
-
-      closedHat.master.output.disconnect( );
-
-    }
-
-  };
-
-  closedHat.start = function( when ) {
-
-    closedHat.envelopes.forEach( function( envelope ) {
-
-      envelope.on( when, closedHat.sustain );
-
-    });
-
-  };
-
 
   return closedHat;
 

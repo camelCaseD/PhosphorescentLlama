@@ -4,7 +4,7 @@ AudioContext.prototype.createBass = function( midiNote ) {
 
   GRAPH:
 
-  bass.sub --> bass.sub.gain --> * --> bass.master.gain --> destination
+  bass.sub --> bass.sub.gain --> * --> bass.master --> destination
       |                |         ^
       .frequency       .gain
       ^                ^
@@ -23,29 +23,17 @@ AudioContext.prototype.createBass = function( midiNote ) {
 
   // If midiNote is note provided, it defaults to C1
 
-  midiNote = midiNote || 24;
-
   var context = this;
 
-  var bass = {};
+  midiNote = midiNote || 24;
+
+  var bass = context.createSynthesizer( );
 
   bass.duration = 0.5;
 
-  bass.sustain =  bass.duration * ( 2 / 5 );
+  bass.setSustain( bass.duration * ( 2 / 5 ) );
 
-  bass.envelopes = [];
-
-  bass.master = {};
-
-  // create and configure bass.master.gain
-
-  bass.master.gain = context.createGain( );
-
-  bass.master.gain.gain.value = 0.25;
-
-  bass.master.input = bass.master.gain;
-
-  bass.master.output = bass.master.gain;
+  bass.setMasterGain( 1 );
 
   // create and configure bass.sub
 
@@ -207,58 +195,6 @@ AudioContext.prototype.createBass = function( midiNote ) {
   */
 
   bass.sub.gain.envelope.connect( bass.sub.gain.gain );
-
-  bass.connect = function( destination ) {
-
-    /*
-
-    bass.master.gain --> destination
-
-    */
-
-    if( destination.hasOwnProperty( 'input' ) ) {
-
-      bass.master.output.connect( destination.input );
-
-    } else {
-
-      bass.master.output.connect( destination );
-
-    }
-
-  };
-
-    bass.disconnect = function( destination ) {
-
-    if( destination ) {
-
-      if( destination.hasOwnProperty( 'input' ) ) {
-
-        bass.master.output.disconnect( destination.input );
-
-      } else {
-
-        bass.master.output.disconnect( destination );
-
-      }
-
-    } else {
-
-      bass.master.output.disconnect( );
-
-    }
-
-  };
-
-  bass.start = function( when ) {
-
-    bass.envelopes.forEach( function( envelope ) {
-
-      envelope.on( when, bass.sustain );
-
-    });
-
-  };
 
   return bass;
 

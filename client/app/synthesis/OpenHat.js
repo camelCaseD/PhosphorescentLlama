@@ -9,7 +9,7 @@ AudioContext.prototype.createOpenHat = function( ) {
                                  .Q                                          * <-- openHat.filter.Q.modulator
                                  | 
                                  v
-  openHat.noise --> openHat.noise.filter --> openHat.noise.gain --> openHat.master.gain --> destination
+  openHat.noise --> openHat.noise.filter --> openHat.noise.gain --> openHat.master --> destination
                                  ^                        ^
                                  |                        |
                                  .frequency               .gain
@@ -23,17 +23,13 @@ AudioContext.prototype.createOpenHat = function( ) {
 
   var context = this;
 
-  var openHat = {};
+  var openHat = context.createSynthesizer( );
 
   ms = Math.pow( 10, -3 );
 
   openHat.duration = 250 * ms;
 
-  openHat.sustain = 0;
-
-  openHat.envelopes = [];
-
-  openHat.master = {};
+  openHat.setSustain( 0 );
 
   // Create and configure openHat.master.gain
 
@@ -231,55 +227,6 @@ AudioContext.prototype.createOpenHat = function( ) {
   */
 
   openHat.noise.gain.connect( openHat.master.input );
-
-  // Provide connect and start methods.
-
-  openHat.connect = function( destination ) {
-
-    if( destination.hasOwnProperty( 'input' ) ) {
-
-      openHat.master.output.connect( destination.input );
-
-    } else {
-
-      openHat.master.output.connect( destination );
-
-    }
-
-  };
-
-    openHat.disconnect = function( destination ) {
-
-    if( destination ) {
-
-      if( destination.hasOwnProperty( 'input' ) ) {
-
-        openHat.master.output.disconnect( destination.input );
-
-      } else {
-
-        openHat.master.output.disconnect( destination );
-
-      }
-
-    } else {
-
-      openHat.master.output.disconnect( );
-
-    }
-
-  };
-
-  openHat.start = function( when ) {
-
-    openHat.envelopes.forEach( function( envelope ) {
-
-      envelope.on( when, openHat.sustain );
-
-    });
-
-  };
-
 
   return openHat;
 };
