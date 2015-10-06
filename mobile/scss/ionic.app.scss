@@ -24,3 +24,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 .tab-nav.tabs {
   background-color: #444;
 }
+
+.bar.bar-stable .title {
+  color: $positive;
+}

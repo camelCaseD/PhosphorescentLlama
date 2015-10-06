@@ -9289,3 +9289,6 @@ a.button {
 
 .tab-nav.tabs {
   background-color: #444; }
+
+.bar.bar-stable .title {
+  color: #FF319E; }
