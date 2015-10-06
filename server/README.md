@@ -37,10 +37,42 @@ var sequencer = Sequencer.prototype.retrieve(JSON.parse(data));
 ```
 
 ### POST to `/levels`
-saveLevel method will handle a POST request made to `/levels`. It will save a new sequencer to the database, with the level and data parsed from the user interface.
+saveLevel method will handle a POST request made to `/levels`. It will save a new sequencer to the database, with the level and data parsed from the user interface. The data to be posted will look like this:
+```
+request.body.level = 5;
+request.body.data =
+"{
+  "tempo":120,
+  "tickNumber":4,
+  "soundIDs":["kick","clap"],
+  "sequences":{
+    "kick":[{"isOn":true},{"isOn":false},{"isOn":true},{"isOn":false}],
+    "clap":[{"isOn":false},{"isOn":true},{"isOn":false},{"isOn":true}]
+  }
+}"
+```
+
 
 ### PUT to `/levels`
-updateLevel will handle a PUT request made to `/levels`. It will update an existing sequencer data with the new data parsed from the user interface with a particular id (level).
+updateLevel will handle a PUT request made to `/levels`. It will update an existing sequencer data with the new data parsed from the user interface with a particular id (level). The data to be updated will look likt this:
+
+```
+request.body.level = 5;
+request.body.data =
+"{
+  "tempo":120,
+  "tickNumber":4,
+  "soundIDs":["kick","clap"],
+  "sequences":{
+    "kick":[{"isOn":true},{"isOn":false},{"isOn":true},{"isOn":false}],
+    "clap":[{"isOn":false},{"isOn":true},{"isOn":false},{"isOn":true}]
+  }
+}"
+```
 
 ### DELETE to `/levels/:id`
-deleteLevel will handle a DELETE request made to `/levels/:id`. It will remove a sequencer data in the database of which the id is the number parsed from the user interface.
+deleteLevel will handle a DELETE request made to `/levels/:id`. It will remove a sequencer data in the database of which the id is the number parsed from the user interface. The level id should be an integer that looks like this:
+
+```
+request.body.level = 5;
+```
