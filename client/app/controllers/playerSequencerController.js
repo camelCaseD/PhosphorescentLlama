@@ -11,65 +11,15 @@ app.controller( 'PlayerSequencerController', [ '$scope', 'playerSequencer', '$ti
 
   };
 
-  //listens for event and creates empty player sequencer that matches target sequencer's parameters
-  //sets pointer to sequences as property of playerSequencer Controller (for ng-repeat to work)
-  //sets beatClass for proper rendering
-  //sends playerSequencer back to gameController
-  $scope.$on( 'createPlayerSequencer', function( event, data ) {
-
-    $scope.tickNumber = data.getTickNumber( );
-
-    var tempo = data.getTempo( );
-
-    var soundIDs = data.getSoundIDs( );
-
-    if( $scope.sequencer ) {
-
-      $scope.sequencer.delete( );
-
-    }
-
-    $scope.sequencer = playerSequencer.build( tempo, $scope.tickNumber, soundIDs );
-
-    $scope.sequences = $scope.sequencer._sequences;
-
-    $scope.sequencer.beatClass = numToWord[ $scope.tickNumber ];
-
-    $scope.$emit( 'madePlayerSequencer', $scope.sequencer );
-
-  });
-
-  $scope.$on( 'playerStopPlaying', function ( ) {
-
-    $scope.stop( );
-
-  });
-
-  $scope.$on( 'toggleWrongBeatsOff', function ( event, wrongBeats ) {
-
-    for( var i = 0; i < wrongBeats.length; i++ ) {
-
-      $scope.toggleBeat( wrongBeats[ i ][ 0 ], wrongBeats[ i ][ 1 ] );
-
-    }
-
-  });
-
-  $scope.$on( 'playToggle', function ( ) {
-
-    $scope.playToggle( );
-
-  });
-
-  $scope.$on( 'destroySequencers', function ( ) {
-
-    $scope.sequencer.stop( );
-
-    delete $scope.sequencer;
-
-  });
-
   $scope.currentColumn = 0;
+
+  /////////////////
+  //
+  //
+  // FUNCTIONS
+  //
+  //
+  /////////////////
 
   $scope.playToggle = function ( ) {
 
@@ -142,5 +92,61 @@ app.controller( 'PlayerSequencerController', [ '$scope', 'playerSequencer', '$ti
     // var beat = $scope.sequencer.getBeat( sequenceIndex, beatIndex ).play( 0 );
 
   };
+
+  /////////////////
+  //
+  //
+  // EVENT HANDLERS
+  //
+  //
+  /////////////////
+
+  //listens for event and creates empty player sequencer that matches target sequencer's parameters
+  //sets pointer to sequences as property of playerSequencer Controller (for ng-repeat to work)
+  //sets beatClass for proper rendering
+  //sends playerSequencer back to gameController
+  $scope.$on( 'createPlayerSequencer', function( event, data ) {
+
+    $scope.tickNumber = data.getTickNumber( );
+
+    var tempo = data.getTempo( );
+
+    var soundIDs = data.getSoundIDs( );
+
+    if( $scope.sequencer ) {
+
+      $scope.sequencer.delete( );
+
+    }
+
+    $scope.sequencer = playerSequencer.build( tempo, $scope.tickNumber, soundIDs );
+
+    $scope.sequences = $scope.sequencer._sequences;
+
+    $scope.sequencer.beatClass = numToWord[ $scope.tickNumber ];
+
+    $scope.$emit( 'madePlayerSequencer', $scope.sequencer );
+
+  });
+
+  $scope.$on( 'playerStopPlaying', function ( ) {
+
+    $scope.stop( );
+
+  });
+
+  $scope.$on( 'playToggle', function ( ) {
+
+    $scope.playToggle( );
+
+  });
+
+  $scope.$on( 'destroySequencers', function ( ) {
+
+    $scope.sequencer.stop( );
+
+    delete $scope.sequencer;
+
+  });
 
 }]);
