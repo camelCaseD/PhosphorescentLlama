@@ -1,6 +1,6 @@
 # Project Name
 
-Parrot Beats
+ngtzit
 
 ## Team
 
@@ -21,16 +21,38 @@ Parrot Beats
 ## Usage
 
 You don't even have to hit play. Just play!
+[Go to play!](http://www.ngtzit.com)
 
 ## Requirements
 
-- Node 0.10.x
-- Mongoose
-- MongoDB
-- Angular
-- Express
-- Underscore
-- Web Audio API
+###bower
+
+* "angular": "~1.4.6",
+* "angular-ui-router": "~0.2.15",
+* "bootstrap": "~3.3.5",
+* "jquery": "~2.1.4",
+* "underscore": "~1.8.3",
+*  "angular-animate": "~1.4.7",
+* "jquery": "~2.1.4"
+
+###npm
+* "angular": "^1.4.7",
+* "angular-animate": "^1.4.7",
+* "angular-ui-router": "^0.2.15",
+* "bcrypt-nodejs": "0.0.3",
+* "body-parser": "^1.14.0",
+* "bootstrap": "^3.3.5",
+* "chai": "^3.3.0",
+* "connect-flash": "^0.1.1",
+* "cookie-parser": "^1.4.0",
+* "express": "^4.13.3",
+* "express-session": "^1.11.3",
+* "jquery": "^2.1.4",
+* "mocha": "^2.3.3",
+* "mongoose": "^4.1.9",
+* "passport": "^0.3.0",
+* "passport-local": "^1.0.0",
+* "underscore": "^1.8.3"
 
 ## Development
 
