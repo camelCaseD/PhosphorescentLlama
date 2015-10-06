@@ -1,6 +1,17 @@
 Classes:
 ========
 
+Table of Contents:
+------------------
+
+1.[Bus](#bus)
+
+2.[Beat](#beat)
+
+3.[Sequence](#sequence)
+
+4.[Sequencer](#sequencer)
+
 Bus:
 ----
 
@@ -28,6 +39,17 @@ No parameters.
 ##### Output:
 
 Returns the first node in the bus' node chain.
+
+#### bus.disconnect:
+
+##### Input:
+
+No parameters.
+
+##### Behavior:
+
+Disconnects the bus's output node all the nodes
+that the bus's output is connected to.
 
 ### Example:
 
@@ -186,6 +208,18 @@ This method does not take any parameters.
 
 Returns the soundID of the sound being played by
 the beats in the sequence.
+
+#### sequence.disconnect:
+
+##### Input:
+
+This methods does not take any parameters.
+
+##### Behavior:
+
+Disconnects the generator that corresponds to
+the sequence's soundID from the sequence's track's input.
+Moreover, disconnects the sequence's track.
 
 ### Example:
 
@@ -432,6 +466,17 @@ Another sequencer, assumed to be the target sequencer. The sequencer this functi
 ##### Output/behavior:
 
 Returns an array of beats that are on in the player sequencer but are not on in the target sequencer, represented as tuples with the sequence index and beat index of the wrong beats.
+
+#### sequencer.delete:
+
+##### Input:
+
+This methods does not take any parameters.
+
+##### Behavior:
+
+Deletes each of the sequences in the sequencer and
+disconnects the sequencer's master bus.
 
 ### Example:
 

@@ -4,7 +4,7 @@ AudioContext.prototype.createKick = function( midiNote ) {
 
     GRAPH:
 
-    kick.sub --> kick.sub.firstGain --> kick.sub.secondGain --> kick.master.gain --> destination
+    kick.sub --> kick.sub.firstGain --> kick.sub.secondGain --> kick.master --> destination
         ^                ^                      ^
         |                |                      |
         .frequency       .gain                  .gain
@@ -22,27 +22,17 @@ AudioContext.prototype.createKick = function( midiNote ) {
 
   // midiNote defaults to C2
 
-  midiNote = midiNote || 36;
-
-  var kick = {};
-
   var context = this;
 
-  kick.master = {};
+  midiNote = midiNote || 36;
 
-  kick.envelopes = [];
+  var kick = context.createSynthesizer( );
 
   var ms = Math.pow( 10, -3 );
 
-  kick.sustain =  25 * ms;
+  kick.setSustain( 25 * ms );
 
-  kick.master.gain = context.createGain( );
-
-  kick.master.gain.gain.value = 0.5;
-
-  kick.master.input = kick.master.gain;
-
-  kick.master.output = kick.master.gain;
+  kick.setMasterGain( 0.5 );
 
   // Create and configure kick.sub
 
@@ -220,54 +210,6 @@ AudioContext.prototype.createKick = function( midiNote ) {
   */
 
   kick.sub.secondGain.envelope.connect( kick.sub.secondGain.gain );
-
-  // Implement connect and start interface.
-
-  kick.connect = function( destination ) {
-
-    if( destination.hasOwnProperty( 'input' ) ) {
-
-      kick.master.output.connect( destination.input );
-
-    } else {
-
-      kick.master.output.connect( destination );
-
-    }
-
-  };
-
-  kick.disconnect = function( destination ) {
-
-    if( destination ) {
-
-      if( destination.hasOwnProperty( 'input' ) ) {
-
-        kick.master.output.disconnect( destination.input );
-
-      } else {
-
-        kick.master.output.disconnect( destination );
-
-      }
-
-    } else {
-
-      kick.master.output.disconnect( );
-
-    }
-
-  };
-
-  kick.start = function( when ) {
-
-    kick.envelopes.forEach( function( envelope ) {
-
-      envelope.on( when, kick.sustain );
-
-    });
-
-  };
 
   return kick;
   

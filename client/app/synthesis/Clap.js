@@ -15,28 +15,18 @@ AudioContext.prototype.createClap = function( ) {
                                       * clap.noise.notch3 <-- clap.noise.notch2 <-- clap.noise.notch1 *
                                       |
                                       v
-                                      * --> clap.master.gain --> destination  
+                                      * --> clap.master --> destination  
   */
 
   var context = this;
 
-  var clap = {};
-
-  clap.envelopes = [];
+  var clap = context.createSynthesizer( );
 
   var ms = Math.pow( 10, -3 );
 
-  clap.sustain = 15 * ms;
+  clap.setSustain( 15 * ms );
 
-  clap.master = {};
-
-  clap.master.gain = context.createGain( );
-
-  clap.master.gain.gain.value = 0.25;
-
-  clap.master.input = clap.master.gain;
-
-  clap.master.output = clap.master.gain;
+  clap.setMasterGain( 0.25 );
 
   // Create and configure clap.noise
 
@@ -235,54 +225,6 @@ AudioContext.prototype.createClap = function( ) {
   */
 
   clap.noise.notch3.connect( clap.master.input );
-
-  // Implement clap.connect and clap.start
-
-  clap.connect = function ( destination ) {
-
-    if( destination.hasOwnProperty( 'input' ) ) {
-
-      clap.master.output.connect( destination.input );
-
-    } else {
-
-      clap.master.output.connect( destination );
-
-    }
-
-  };
-
-    clap.disconnect = function( destination ) {
-
-    if( destination ) {
-
-      if( destination.hasOwnProperty( 'input' ) ) {
-
-        clap.master.output.disconnect( destination.input );
-
-      } else {
-
-        clap.master.output.disconnect( destination );
-
-      }
-
-    } else {
-
-      clap.master.output.disconnect( );
-
-    }
-
-  };
-
-  clap.start = function( when ) {
-
-    clap.envelopes.forEach( function( envelope ) {
-
-      envelope.on( when, clap.sustain );
-
-    });
-
-  };
 
   return clap;
 

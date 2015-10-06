@@ -1,6 +1,25 @@
 Synthesis
 =========
 
+Table of Contents:
+------------------
+
+1.[AudioContext.prototype.createEnvelope](#audiocontextprototypecreateenvelope)
+
+2.[AudioContext.prototype.createWhiteNoise](#audiocontextprototypecreatewhitenoise)
+
+3.[AudioContext.prototype.createSynthesizer](#audiocontextprototypecreatesynthesizer)
+
+4.[AudioContext.prototype.createKick](#audiocontextprototypecreatekick)
+
+5.[AudioContext.prototype.createClap](#audiocontextprototypecreateclap)
+
+6.[AudioContext.prototype.createOpenHat](#audiocontextprototypecreateopenhat)
+
+7.[AudioContext.prototype.createClosedHat](#audiocontextprototypecreateclosedhat)
+
+8.[AudioContext.prototype.createBass](#audiocontextprototypecreatebass)
+
 AudioContext.prototype.createEnvelope
 -------------------------------------
 
@@ -326,248 +345,144 @@ of white noise will be stopped.
 
     gainEnvelope.on( context.currentTime, 1);
 
-AudioContext.prototype.createKick
----------------------------------
+AudioContext.prototype.createSynthesizer:
+-----------------------------------------
 
 This constructor extends the browser's AudioContext class
-in order to instatiate a kick source. The start method
-behaves like the start method of Audio Source Nodes except
-that it can be invoked several times for the same kick instance.
+in order to instantiate an unopinionated skeleton
+for starteable, connectable graph with a master
+bus. Note that this abstraction is not meant to support
+keyboard synthesizers. Rather, it is meant to support a
+note-on only sequencer.
 
-### Instantiation Parameters:
+### Synthesizer Methods:
 
-#### midiNote:
+For the explanations below, suppose the 'synthesizer'
+with a lowercase 's' refers to the return value of
+a call to AudioContext.prototype.createSynthesizer.
 
-midiNote can be any integer between 0 and 127. It specifies
-the MIDI standard value for the root note of the kick. If midiNote
-is not defined, then it defaults to 36.
-
-### Kick Methods:
-
-For the explanations below, suppose the 'kick'
-with a lowercase 'k' refers to the return value of
-a call to AudioContext.prototype.createKick.
-
-#### kick.connect:
+#### synthesizer.connect:
 
 ##### Instantiation Parameters:
 
 ###### Destination:
 
-Destination is either an Audio Node or an
-object with an input property that is an audio node.
+Either an Audio Node or an
+object with an input property that is an Audio Node.
 
 ##### Behavior:
 
-If the destination is an Audio Node, then the
-output of the kick is piped to that Audio Node.
-If the destination is an object with an 'input'
-property that is an Audio Node, then the output
-of the kick is piped to the Audio Node at that
-input property.
+If the destination is an Audio Node, then 
+the output of the synthesizer is piped to that
+Audio Node. If the destination is an object with
+an 'input' property that is an Audio Node, then the
+output of the synthesizer is piped to the Audio
+Node at that input property.
 
-#### kick.start:
+#### synthesizer.disconnect:
+
+##### Instantiation Parameters:
+
+###### Destination:
+
+Either undefined, or an Audio Node, or
+an object with an input property that
+is an Audio Node.
+
+##### Behavior:
+
+If the destination is undefined, then the
+output of the synthesizer is disconnected
+from all of the nodes that it is connected to.
+If the destination is an Audio Node, then
+the output of the synthesizer is disconnected
+from that Audio Node. If the destination is an
+object with an 'input' property that is an Audio Node,
+then the output of the synthesizer is disconnected
+from the Audio Node at that input property.
+
+#### synthesizer.start:
 
 ##### Instantiation Parameters:
 
 ###### When:
 
-When is the time at which the kick will
+The time at which the synthesizer will
 be scheduled to start.
 
-###### Behavior:
+##### Behavior:
 
 Schedules the kick to start at the time
-determined by 'When'.
+time determined by the 'when' parameter.
 
-AudioContext.prototype.createClap
----------------------------------
-
-This constructor extends the browser's AudioContext class
-in order to instatiate a clap source. The start method
-behaves like the start method of Audio Source Nodes except
-that it can be invoked several times for the same clap instance.
-
-### clap Methods:
-
-For the explanations below, suppose the 'clap'
-with a lowercase 'c' refers to the return value of
-a call to AudioContext.prototype.createClap.
-
-#### clap.connect:
+#### synthesizer.setMasterGain:
 
 ##### Instantiation Parameters:
 
-###### Destination:
+###### Gain:
 
-Destination is either an Audio Node or an
-object with an input property that is an audio node.
+A number, usually, but not constrained,
+between -1 and 1.
 
 ##### Behavior:
 
-If the destination is an Audio Node, then the
-output of the clap is piped to that Audio Node.
-If the destination is an object with an 'input'
-property that is an Audio Node, then the output
-of the clap is piped to the Audio Node at that
-input property.
+Sets the gain value of the synthesizer's master
+gain node to 'Gain'.
 
-#### clap.start:
+#### synthesizer.setSustainTime:
 
 ##### Instantiation Parameters:
 
-###### When:
+###### Sustain:
 
-When is the time at which the clap will
-be scheduled to start.
-
-###### Behavior:
-
-Schedules the clap to start at the time
-determined by 'When'.
-
-AudioContext.prototype.createClosedHat
---------------------------------------
-
-This constructor extends the browser's AudioContext class
-in order to instatiate a closed hat source. The start method
-behaves like the start method of Audio Source Nodes except
-that it can be invoked several times for the same closed hat instance.
-
-### closedHat Methods:
-
-For the explanations below, suppose the 'closedHat'
-with a lowercase 'c' refers to the return value of
-a call to AudioContext.prototype.createClosedHat.
-
-#### closedHat.connect:
-
-##### Instantiation Parameters:
-
-###### Destination:
-
-Destination is either an Audio Node or an
-object with an input property that is an audio node.
+A positive number or 0.
 
 ##### Behavior:
 
-If the destination is an Audio Node, then the
-output of the closed hat is piped to that Audio Node.
-If the destination is an object with an 'input'
-property that is an Audio Node, then the output
-of the closed hat is piped to the Audio Node at that
-input property.
+Determines the amount of time after the end
+of the decay phase before
+the release phases of all envelopes in the
+synthesizer are triggered.
 
-#### closedHat.start:
+AudioContext.prototype.createKick:
+----------------------------------
 
-##### Instantiation Parameters:
-
-###### When:
-
-When is the time at which the closed hat will
-be scheduled to start.
-
-###### Behavior:
-
-Schedules the closed hat to start at the time
-determined by 'When'.
-
-AudioContext.prototype.createOpenHat
---------------------------------------
-
-This constructor extends the browser's AudioContext class
-in order to instatiate a open hat source. The start method
-behaves like the start method of Audio Source Nodes except
-that it can be invoked several times for the same open hat instance.
-
-### Open Hat Methods:
-
-For the explanations below, suppose the 'openHat'
-with a lowercase 'o' refers to the return value of
-a call to AudioContext.prototype.createOpenHat.
-
-#### openHat.connect:
-
-##### Instantiation Parameters:
-
-###### Destination:
-
-Destination is either an Audio Node or an
-object with an input property that is an audio node.
-
-##### Behavior:
-
-If the destination is an Audio Node, then the
-output of the open hat is piped to that Audio Node.
-If the destination is an object with an 'input'
-property that is an Audio Node, then the output
-of the open hat is piped to the Audio Node at that
-input property.
-
-#### openHat.start:
-
-##### Instantiation Parameters:
-
-###### When:
-
-When is the time at which the open hat will
-be scheduled to start.
-
-###### Behavior:
-
-Schedules the open hat to start at the time
-determined by 'When'.
-
-AudioContext.prototype.createBass
----------------------------------
-
-This constructor extends the browser's AudioContext class
-in order to instatiate a bass source. The start method
-behaves like the start method of Audio Source Nodes except
-that it can be invoked several times for the same bass instance.
+Returns a synthesizer instance with a
+node graph that produces a sound similar to
+a kick drum.
 
 ### Instantiation Parameters:
 
 #### midiNote:
 
-midiNote can be any integer between 0 and 127. It specifies
-the MIDI standard value for the root note of the bass. If midiNote
-is not defined, then it defaults to 36.
+The MIDI standard note of the synthesizer's fundamental frequency.
 
-### Bass Methods:
+AudioContext.prototype.createClap:
+----------------------------------
 
-For the explanations below, suppose the 'bass'
-with a lowercase 'b' refers to the return value of
-a call to AudioContext.prototype.createBass.
+Returns a synthesizer instance with a node graph
+that produces a sound similar to a clap.
 
-#### bass.connect:
+AudioContext.prototype.createOpenHat:
+-------------------------------------
 
-##### Instantiation Parameters:
+Returns a synthesizer instance with a node graph
+that produces a sound similar to an open high-hat.
 
-###### Destination:
+AudioContext.prototype.createClosedHat:
+---------------------------------------
 
-Destination is either an Audio Node or an
-object with an input property that is an audio node.
+Returns a synthesizer instance with a node graph
+that produces a sound similar to a closed high-hat.
 
-##### Behavior:
+AudioContext.prototype.createBass:
+----------------------------------
 
-If the destination is an Audio Node, then the
-output of the bass is piped to that Audio Node.
-If the destination is an object with an 'input'
-property that is an Audio Node, then the output
-of the bass is piped to the Audio Node at that
-input property.
+Returns a synthesizer instance with a node graph
+that produces a sound similar to a bass.
 
-#### bass.start:
+### Instantiation Parameters:
 
-##### Instantiation Parameters:
+#### midiNote:
 
-###### When:
-
-When is the time at which the bass will
-be scheduled to start.
-
-###### Behavior:
-
-Schedules the bass to start at the time
-determined by 'When'.
+The MIDI standard note of the synthesizer's fundamental frequency.
