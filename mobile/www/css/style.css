@@ -1,1 +1,101 @@
-/* Empty. Add your own CSS if you like */
+
+.gameSpace {
+
+  margin: 0 auto;
+
+  width: 100vw;
+
+  height: 100vw;
+
+}
+
+.playerSequencer {
+
+  margin: 0 auto;
+
+  width: 90vw;
+
+}
+
+.sequence {
+
+  margin: auto;
+
+  display: block;
+
+}
+
+.sequence.four {
+
+  height: 15vw;
+
+  width: 60vw;
+}
+
+.sequencer.eight {
+
+  height: 11vw;
+
+  width: 88vw;
+
+}
+
+.sequencer.sixteen {
+
+  height: 11vw;
+
+  width: 88vw;
+
+}
+
+.beat {
+
+  display: inline-block;
+
+  margin: auto;
+
+  text-align: center;
+
+  background-color: #fd00ff;
+
+  border: 3px solid #387ef5;
+
+}
+
+.beat-box {
+
+  width: 100%;
+
+  height: 100%;
+
+}
+
+.beat.four {
+
+  width: 15vw;
+
+  height: 15vw;
+
+}
+
+.beat.eight {
+
+  height: 11vw;
+
+  width: 11vw;
+
+}
+
+.beat.sixteen {
+
+  height: 11vw;
+
+  width: 5.5vw;
+
+}
+
+.playing {
+
+  opacity: .95;
+
+}
