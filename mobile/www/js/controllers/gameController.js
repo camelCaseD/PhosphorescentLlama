@@ -83,7 +83,7 @@ angular.module('starter.controllers.GameController', [])
     if( $scope.level !== $scope.lastLevel ) {
 
       $scope.$emit( 'correctMatch' );
-      
+
     }
 
 
@@ -105,7 +105,7 @@ angular.module('starter.controllers.GameController', [])
 
 
       $scope.startLevel( );
-      
+
     }
 
   };
