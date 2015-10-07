@@ -14,11 +14,12 @@ if( process.env.PORT ) {
 mongoose.connect( connectURI );
 
 var seedDb = function ( ) {
-  var level;
+  var level, sequencers = [];
+
   //loop through the levels
   for ( var i = 0; i < levels.length; i++ ) {
     
-    level = levels [ i ];
+    level = levels[i];
     
     //check level format
     if ( (level.data.tickNumber !== 4) && (level.data.tickNumber !== 8) && (level.data.tickNumber !== 16) ) {
@@ -45,38 +46,33 @@ var seedDb = function ( ) {
 
     }
 
-    var sequencer = new Sequencer( );
+    level.data = JSON.stringify( level.data );
 
-    //add level property from 1- number of levels
-    sequencer.level  = i + 1;
+    sequencers.push(level);
 
-    sequencer.data = JSON.stringify( level.data );
+  }
 
-    // add to db
-    Sequencer.findOne( { level: sequencer.level }, function( err, found ) {
+  // add to db
+  return Sequencer.remove({}, function ( ){
 
-      if ( err ) {
+    console.log( 'Levels Deleted' );
+
+    Sequencer.collection.insert(sequencers, function ( error, result ) {
+
+      if ( error ) {
 
         throw error;
 
       } else {
 
-        sequencer.save(function( error ){
-
-          if ( error ) {
-
-            throw error;
-
-          }
-          console.log('Saving level');
-
-        });
+        console.log(result.insertedCount + " levels inserted");
 
       }
-    
+
     });
 
-  }
+  });
+
 
 };
 
@@ -84,7 +80,7 @@ var seedDb = function ( ) {
 // level property must be added, tick number must 4/8/16 and must be the same as sequences[sound].length
 var levels = [
   {
-    //level : integer,
+    level : 1,
     data: {
       "tempo":"1200",
       "tickNumber":4,
@@ -106,6 +102,7 @@ var levels = [
     }
   },
   {
+    level: 2,
     data: {
       "tempo":"1200",
       "tickNumber":8,
