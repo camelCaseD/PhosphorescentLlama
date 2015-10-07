@@ -41,4 +41,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   .nav-bar-block[nav-bar=active] ion-header-bar {
     width: 70px;
   }
+
+  ion-content.has-tabs-top {
+    top: 44px;
+  }
 }
