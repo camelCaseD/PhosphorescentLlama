@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+- '4.1.1'
+deploy:
+  provider: heroku
+  api_key:
+    secure: YPv/jY0W07SfhuKoGZQ11nYT4k5ajcMFCwRXCYOVBbODNkfarqbZMAoC/8/aHPaiKJ0ucperFvPsCGUX6L0DNpChtgz/juXqOsm5xAnWL5wqRvg0nE1uF9eYq3fk0KGAZtOiU+hm/s2LkoN2xQx+Ff9n2HPtgl8mxIDR3AjNA3k3tJTxR3yxZP/5wLXHATigNFBJqNsaQgQEJ2R4ZErTBZ92n+SkZ5TxQckl+hyVjIzor+FERvKjEZktWhOJf7aW+9pqRZ2iEklmJJKjuhWnvSXRSnUunmbEzV46848d4r4hJ7esfV/hxV4DM0a9+X/eBNX36dezAyZtIAI7oFp4dlTjyEdBSTPSS09TRGI2R3UuWhgqNBRvWJLJLY2h5EMdlI1ai6YYnu9H6NAhPaXTYQ6kntIbOOJAWFDbONtZ0+mXvsC3mtPbJR8wjSweqfaY62WUh6Dhv/KCDHDD+QPinphs0vKL2KE6xX9/cfUI+gKHYLZIYpFlgdd18MifqgOGaIKshpsnJdHWuhGTlmjnIx88HjL0a2liF25fsRXvAe+4VoixZrTWyEYk+4O8Yv3k+R/NCylvtW9pevpzHuY0uNMMfMLV7m0U574bxAp30VseaatpX0zPiZrNk3sz2hx4umX97LIFLWmKO6UKsmWDgOe0pEyKd/CT107FFsudNt4=
+  app: ar-ngtzit
+  on:
+    repo: amused-rutabega/PhosphorescentLlama
+    branch: master
