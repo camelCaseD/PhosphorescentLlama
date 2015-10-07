@@ -9301,3 +9301,6 @@ a.button {
 
 .platform-android .nav-bar-block[nav-bar=active] ion-header-bar {
   width: 70px; }
+
+.platform-android ion-content.has-tabs-top {
+  top: 44px; }
