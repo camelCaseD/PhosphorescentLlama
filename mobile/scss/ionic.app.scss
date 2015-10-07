@@ -29,20 +29,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   color: $positive;
 }
 
-.platform-android {
-  .tab-nav.tabs {
-    top: 0px;
-  }
-
-  .nav-bar-block[nav-bar=cached] {
-    display: none;
-  }
-
-  .nav-bar-block[nav-bar=active] ion-header-bar {
-    width: 70px;
-  }
-
-  ion-content.has-tabs-top {
-    top: 44px;
-  }
+ion-header-bar {
+  // width: 70px !important;
+  background-color: transparent !important;
 }

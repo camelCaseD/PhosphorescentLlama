@@ -1,5 +1,25 @@
 <ion-view view-title="ngtzit">
   <ion-content class="padding">
+    <div class="gameSpace">
 
+      <div class="targetSequencer padding-{{ numSequencers }}" ng-controller="TargetSequencerController"></div>
+
+      <div class="playerSequencer" ng-controller="PlayerSequencerController">
+
+        <div class="sequence {{ sequencer.beatClass }}" ng-repeat="sequence in sequences | orderBy: $index">
+
+          <div class="beat {{sequencer.beatClass}}"
+
+          ng-repeat="beat in sequence._beats"
+
+          ng-click="toggleBeat($parent.$index, $index)">
+
+            <beat-box></beat-box>
+
+        </div>
+
+      </div>
+
+    </div>
   </ion-content>
 </ion-view>

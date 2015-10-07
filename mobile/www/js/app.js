@@ -44,45 +44,14 @@ angular.module('starter', [
   // Each state's controller can be found in controllers.js
   $stateProvider
 
-  // setup an abstract state for the tabs directive
-    .state('tab', {
-    url: '/tab',
-    abstract: true,
-    templateUrl: 'templates/tabs.html'
-  })
-
-  // Each tab has its own nav history stack:
-
-  .state('tab.visualize', {
-    url: '/visualize',
-    views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-visualize.html',
-        controller: 'VisualizeController'
-      }
-    }
-  })
-  .state('tab.play', {
-    url: '/play',
-    views: {
-      'tab-play-sequence': {
-        templateUrl: 'templates/tab-play-sequence.html',
-        controller: 'PlayController'
-      }
-    }
-  })
-  .state('tab.check', {
-    url: '/check',
-    views: {
-      'tab-check-answer': {
-        templateUrl: 'templates/tab-check-answer.html',
-        controller: 'CheckAnswerController'
-      }
-    }
+  .state('game', {
+    url: '/game',
+    templateUrl: 'templates/tab-play-sequence.html',
+    controller: 'GameController'
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/visualize');
+  $urlRouterProvider.otherwise('/game');
 
 })
 

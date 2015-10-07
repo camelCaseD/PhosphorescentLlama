@@ -56,9 +56,7 @@
 
   text-align: center;
 
-  background-color: #fd00ff;
-
-  border: 3px solid #387ef5;
+  padding: 10px;
 
 }
 
@@ -67,6 +65,10 @@
   width: 100%;
 
   height: 100%;
+
+  background-color: #fd00ff;
+
+  border: 3px solid #387ef5;
 
 }
 
