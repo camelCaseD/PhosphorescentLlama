@@ -5,7 +5,20 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', [
+  'ionic',
+  'starter.controllers',
+  'starter.services.http',
+  'starter.services.playerSequencer',
+  'starter.services.init',
+  'starter.directives.beatBox',
+  'starter.controllers.ActiveController',
+  'starter.controllers.GameController',
+  'starter.controllers.NavController',
+  'starter.controllers.PlayerSequencerController',
+  'starter.controllers.TargetSequencerController',
+  'starter.controllers.ViewController'
+])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -73,18 +86,32 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 })
 
-.directive('beatBox', function ( ) {
+.run( [ '$rootScope', 'httpFactory', '$location' , function ( $rootScope, httpFactory, $location ) {
 
-  return {
+  $rootScope.$on( '$locationChangeSuccess', function ( ) {
 
-    templateUrl: 'templates/beat-box.html',
+    httpFactory.getUser( function ( response ) {
 
-    replace: true,
+      if( response.status === 200 ) {
 
-    restrict: 'E'
+        if( response.headers( 'username' ) ) {
 
-  };
+          $rootScope.user = {};
 
-});
+          $rootScope.user.username = response.headers( 'username' );
+
+          $rootScope.user.level = response.headers( 'level' );
+
+        }
+
+        $location.path( response.data );
+
+      }
+
+    });
+
+  });
+
+}]);
 
 

@@ -1,4 +1,6 @@
-app.directive('beatBox', function ( ) {
+angular.module('starter.directives.beatBox', [])
+
+.directive('beatBox', function ( ) {
 
   return {
 

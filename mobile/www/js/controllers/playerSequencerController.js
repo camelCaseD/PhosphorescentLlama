@@ -1,4 +1,6 @@
-app.controller( 'PlayerSequencerController', [ '$scope', 'playerSequencer', '$timeout', function ( $scope, playerSequencer, $timeout ) {
+angular.module('starter.controllers.PlayerSequencerController', [])
+
+.controller( 'PlayerSequencerController', [ '$scope', 'playerSequencer', '$timeout', function ( $scope, playerSequencer, $timeout ) {
 
   //change tickNumber to word so that CSS class works properly
   var numToWord = {
