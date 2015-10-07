@@ -22,7 +22,7 @@ var connectURI;
 
 if( process.env.PORT ) {
 
-  connectURI = 'mongodb://heroku_65zhsf5d:4akorlp2tcl6mfatm608iio30n@ds029224.mongolab.com:29224/heroku_65zhsf5d';
+  connectURI = process.env.DATABASE_URL;
 
 } else {
 
