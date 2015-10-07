@@ -28,3 +28,17 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 .bar.bar-stable .title {
   color: $positive;
 }
+
+.platform-android {
+  .tab-nav.tabs {
+    top: 0px;
+  }
+
+  .nav-bar-block[nav-bar=cached] {
+    display: none;
+  }
+
+  .nav-bar-block[nav-bar=active] ion-header-bar {
+    width: 70px;
+  }
+}

@@ -9292,3 +9292,12 @@ a.button {
 
 .bar.bar-stable .title {
   color: #FF319E; }
+
+.platform-android .tab-nav.tabs {
+  top: 0px; }
+
+.platform-android .nav-bar-block[nav-bar=cached] {
+  display: none; }
+
+.platform-android .nav-bar-block[nav-bar=active] ion-header-bar {
+  width: 70px; }
