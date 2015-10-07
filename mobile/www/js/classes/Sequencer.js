@@ -109,13 +109,13 @@ Sequencer.prototype.save = function( ) {
   var data = {
 
     "tempo": this.getTempo(),
-    
+
     "tickNumber": this.getTickNumber(),
-    
+
     "soundIDs": this.getSoundIDs(),
 
     "sequences": {}
-  
+
   };
 
   for ( var i = 0; i < this._sequences.length; i++ ) {

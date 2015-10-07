@@ -44,19 +44,10 @@ angular.module('starter', [
   // Each state's controller can be found in controllers.js
   $stateProvider
 
-  // setup an abstract state for the tabs directive
-  .state('tab', {
-    url: '/tab',
-    abstract: true,
-    templateUrl: 'templates/tabs.html'
-  })
-
-  // Each tab has its own nav history stack:
-
   .state('game', {
     url: '/game',
     templateUrl: 'templates/tab-play-sequence.html',
-    controller: 'PlayController'
+    controller: 'GameController'
   });
 
   // if none of the above states are matched, use this as the fallback
