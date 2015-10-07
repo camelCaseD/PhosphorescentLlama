@@ -82,7 +82,7 @@ var levels = [
   {
     level : 1,
     data: {
-      "tempo":"1200",
+      "tempo":"120",
       "tickNumber":4,
       "soundIDs":["kick","clap"],
       "sequences":{
@@ -104,7 +104,7 @@ var levels = [
   {
     level: 2,
     data: {
-      "tempo":"1200",
+      "tempo":"120",
       "tickNumber":8,
       "soundIDs":["kick","clap"],
       "sequences":{
