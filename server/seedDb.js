@@ -22,8 +22,8 @@ var seedDb = function ( ) {
     
     //check level format
     if ( (level.data.tickNumber !== 4) && (level.data.tickNumber !== 8) && (level.data.tickNumber !== 16) ) {
-      console.log((level.data.tickNumber !== 4) && (level.data.tickNumber !== 8) && (level.data.tickNumber !== 16), level.tickNumber);
-      throw "invalid tickNumber on level " + (i+1);
+
+      throw level.data.tickNumber + "is an invalid tickNumber on level " + (i+1);
 
     }
     
