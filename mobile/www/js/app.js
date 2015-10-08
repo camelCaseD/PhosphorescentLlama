@@ -7,6 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', [
   'ionic',
+  'ionic.utils',
   'starter.controllers',
   'starter.services.http',
   'starter.services.playerSequencer',
@@ -34,6 +35,41 @@ angular.module('starter', [
       StatusBar.styleLightContent();
     }
   });
+})
+
+.run(function(httpFactory, $localstorage) {
+
+  // https://blog.nraboy.com/2015/03/create-a-random-nonce-string-using-javascript/
+  var randomString = function(length) {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    for(var i = 0; i < length; i++) {
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    return text;
+  }
+
+  //if user hasn't been created, create one
+  var user = $localstorage.getObject('user');
+  if(!user) {
+    var user = {
+      username: randomString(6),
+      password: randomString(6)
+    }
+    console.log(user);
+    // use httpFactory.signupUser({username:ad;slfkjads, password: as;dlfkjas;d})
+    httpFactory.signupUser(user, function(response) {
+      $localstorage.setObject('user', user);
+      console.log('attempted to create user', response);
+    });
+  } else {
+    //login to user
+    console.log(user);
+    httpFactory.loginUser(user, function(response) {
+      console.log('attempted to login', response);
+    });
+  }
+
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
