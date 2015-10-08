@@ -101,11 +101,11 @@ angular.module('starter.controllers.PlayerSequencerController', [])
 
         if( unselector !== selector ) {
 
-          element(unselector).parent().removeClass('current');
+          element(unselector).removeClass('current');
           
         } else {
 
-          element(selector).parent().addClass('current');
+          element(selector).addClass('current');
           
         }
 
