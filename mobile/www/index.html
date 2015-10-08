@@ -59,7 +59,7 @@
     <div ng-controller="ViewController">
       <div class="wrong" ng-class="{ flash: wrong }" ng-show="wrong"><span class="wrong-message">Try again!</span></div>
       <div class="match" ng-class="{ flash: match }" ng-show="match"><span class="match-message">Good job!</span></div>
-      <div class="won" ng-class="{ flash: won }" ng-show="won"><span class="won-message">CONGRATULATIONS! YOU WON!</span></div>
+      <div class="won" ng-class="{ flash: won }" ng-show="won" ng-click="restartGame()"><span class="won-message">CONGRATULATIONS! YOU WON!</span></div>
     </div>
 
     <!--

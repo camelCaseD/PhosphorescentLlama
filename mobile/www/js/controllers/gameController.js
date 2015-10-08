@@ -176,6 +176,14 @@ angular.module('starter.controllers.GameController', [])
 
   });
 
+  $scope.$on( 'restartGame', function ( ) {
+
+    $scope.level = 1;
+
+    $scope.startLevel();
+
+  });
+
   ////////////////////
   //
   //
