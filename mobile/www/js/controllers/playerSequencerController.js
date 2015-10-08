@@ -84,7 +84,7 @@ angular.module('starter.controllers.PlayerSequencerController', [])
 
   $scope.animateLoop = function ( time ) {
 
-    var element = angular.element;
+    var element = $;
 
     $timeout( function( ) {
 
@@ -94,6 +94,22 @@ angular.module('starter.controllers.PlayerSequencerController', [])
         wait: $scope.tickNumber * 5 / 2,
         position: null
       });
+
+      for( var i = 0; i < $scope.tickNumber; i++ ) {
+
+        var unselector = '.' + numToWord[i];
+
+        if( unselector !== selector ) {
+
+          element(unselector).parent().removeClass('current');
+          
+        } else {
+
+          element(selector).parent().addClass('current');
+          
+        }
+
+      }
 
       $scope.currentColumn = ( $scope.currentColumn + 1 ) % $scope.tickNumber;
 

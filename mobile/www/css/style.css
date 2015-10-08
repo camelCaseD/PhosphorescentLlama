@@ -62,6 +62,8 @@
 
   text-align: center;
 
+  transition: padding .1s;
+
 }
 
 .beat-box {
@@ -109,6 +111,12 @@
 .playing {
 
   opacity: .5;
+
+}
+
+.current {
+
+  padding: 4vw !important;
 
 }
 
