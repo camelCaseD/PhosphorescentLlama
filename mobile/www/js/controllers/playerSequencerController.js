@@ -29,13 +29,13 @@ angular.module('starter.controllers.PlayerSequencerController', [])
 
       $scope.stop( );
 
-      for( var i = 0; i < $scope.tickNumber; i++ ) {
-
-        var unselector = '.' + i;
-
-        angular.element(unselector).removeClass('current');
-
-      }
+      // for( var i = 0; i < $scope.tickNumber; i++ ) {
+      //
+      //   var unselector = '.' + i;
+      //
+      //   angular.element(unselector).removeClass('current');
+      //
+      // }
 
     } else {
 
@@ -52,27 +52,27 @@ angular.module('starter.controllers.PlayerSequencerController', [])
     var element = angular.element;
 
     $timeout( function( ) {
-      
+
       var selector = '.' + $scope.currentColumn;
 
-      for( var i = 0; i < $scope.tickNumber; i++ ) {
-
-        var unselector = '.' + i;
-
-        if( unselector !== selector ) {
-
-          element(unselector).removeClass('current');
-          
-        } else {
-
-          element(selector).addClass('current');
-          
-        }
-
-      }
+      // for( var i = 0; i < $scope.tickNumber; i++ ) {
+      //
+      //   var unselector = '.' + i;
+      //
+      //   if( unselector !== selector ) {
+      //
+      //     element(unselector).removeClass('current');
+      //
+      //   } else {
+      //
+      //     element(selector).addClass('current');
+      //
+      //   }
+      //
+      // }
 
       $scope.currentColumn = ( $scope.currentColumn + 1 ) % $scope.tickNumber;
-      
+
     }, time );
 
   };

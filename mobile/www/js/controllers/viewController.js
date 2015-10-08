@@ -32,19 +32,19 @@ angular.module('starter.controllers.ViewController', [])
 
 	};
 
-	$scope.$on( 'correctMatch', function ( ) {
+	$rootScope.$on( 'correctMatch', function ( ) {
 
 		$scope.declareMatch( );
 
 	});
 
-	$scope.$on( 'notAMatch', function ( ) {
+	$rootScope.$on( 'notAMatch', function ( ) {
 
 		$scope.declareWrong( );
 
 	});
 
-	$scope.$on( 'playerWon' , function ( ) {
+	$rootScope.$on( 'playerWon' , function ( ) {
 
 		$scope.won = true;
 
