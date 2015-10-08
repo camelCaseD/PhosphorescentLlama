@@ -36,8 +36,15 @@ mongoose.connect( connectURI );
 var app = express();
 
 app.use(function(req, res, next) {
-  res.set( { 'Access-Control-Allow-Origin': '*', 'Access-Control-Expose-Headers': 'lastLevel' } );
+  
+  res.set( {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Expose-Headers': 'lastLevel',
+    'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept' 
+  } );
+
   next();
+
 });
 
 app.use( bodyParser.urlencoded({extended: true}) );
