@@ -5,15 +5,58 @@ angular.module('starter.controllers.PlayerSequencerController', [])
   //change tickNumber to word so that CSS class works properly
   var numToWord = {
 
+    '0': 'zero',
+
+    '1': 'one',
+
+    '2': 'two',
+
+    '3': 'three',
+
     '4': 'four',
 
+    '5': 'five',
+
+    '6': 'six',
+
+    '7': 'seven',
+
     '8': 'eight',
+
+    '9': 'nine',
+
+    '10': 'ten',
+
+    '11': 'eleven',
+
+    '12': 'twelve',
+
+    '13': 'thirteen',
+
+    '14': 'fourteen',
+
+    '15': 'fifteen',
 
     '16': 'sixteen'
 
   };
 
+  $scope.numToWord = numToWord;
+
   $scope.currentColumn = 0;
+
+
+  /////////////////
+  //
+  //
+  // INITIALIZATION
+  //
+  //
+  /////////////////
+
+  Waves.init({
+    duration: $scope.tickNumber * 5
+  });
 
   /////////////////
   //
@@ -45,7 +88,12 @@ angular.module('starter.controllers.PlayerSequencerController', [])
 
     $timeout( function( ) {
 
-      var selector = '.' + $scope.currentColumn;
+      var selector = '.' + numToWord[$scope.currentColumn];
+
+      Waves.ripple(selector + '.beat-box', {
+        wait: $scope.tickNumber * 5 / 2,
+        position: null
+      });
 
       $scope.currentColumn = ( $scope.currentColumn + 1 ) % $scope.tickNumber;
 
