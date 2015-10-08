@@ -35,22 +35,16 @@
 
 .sequence.four {
 
-  /*height: 50vw;*/
-
   width: 100vw;
 }
 
 .sequencer.eight {
-
-  /*height: 11vw;*/
 
   width: 100vw;
 
 }
 
 .sequencer.sixteen {
-
-  /*height: 11vw;*/
 
   width: 100vw;
 
@@ -76,7 +70,7 @@
 
   background-color: #fd00ff;
 
-  border: 3px solid #387ef5;
+  border: 1.5px solid #f9cef5;
 
 }
 
