@@ -11,15 +11,23 @@
 
 .playerSequencer {
 
+  position: absolute;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
   margin: 0 auto;
 
-  width: 90vw;
+  width: 100vw;
 
 }
 
 .sequence {
 
-  margin: auto;
+  text-align: center;
+
+  margin: 0 auto;
 
   display: block;
 
@@ -27,24 +35,24 @@
 
 .sequence.four {
 
-  height: 15vw;
+  /*height: 50vw;*/
 
-  width: 60vw;
+  width: 100vw;
 }
 
 .sequencer.eight {
 
-  height: 11vw;
+  /*height: 11vw;*/
 
-  width: 88vw;
+  width: 100vw;
 
 }
 
 .sequencer.sixteen {
 
-  height: 11vw;
+  /*height: 11vw;*/
 
-  width: 88vw;
+  width: 100vw;
 
 }
 
@@ -56,7 +64,7 @@
 
   text-align: center;
 
-  padding: 10px;
+  padding: 1vw;
 
 }
 
@@ -74,9 +82,9 @@
 
 .beat.four {
 
-  width: 15vw;
+  width: 25vw;
 
-  height: 15vw;
+  height: 25vw;
 
 }
 
