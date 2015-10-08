@@ -2,6 +2,8 @@ angular.module('starter.controllers.GameController', [])
 
 .controller( 'GameController' , [ '$scope', 'playerSequencer', 'httpFactory', 'initialize', '$rootScope', '$timeout', function ( $scope, playerSequencer, httpFactory, initialize, $rootScope, $timeout ) {
 
+  console.log($scope);
+
   /////////////////
   //
   //
