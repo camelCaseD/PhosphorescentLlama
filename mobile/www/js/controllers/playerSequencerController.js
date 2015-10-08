@@ -90,7 +90,7 @@ angular.module('starter.controllers.PlayerSequencerController', [])
 
       var selector = '.' + numToWord[$scope.currentColumn];
 
-      Waves.ripple(selector + '.beat-box', {
+      Waves.ripple(selector + '.beat-box.playing', {
         wait: $scope.tickNumber * 5 / 2,
         position: null
       });
