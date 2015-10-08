@@ -36,7 +36,7 @@ mongoose.connect( connectURI );
 var app = express();
 
 app.use(function(req, res, next) {
-  res.set( { 'Access-Control-Allow-Origin': '*' } );
+  res.set( { 'Access-Control-Allow-Origin': '*', 'Access-Control-Expose-Headers': 'lastLevel' } );
   next();
 });
 
