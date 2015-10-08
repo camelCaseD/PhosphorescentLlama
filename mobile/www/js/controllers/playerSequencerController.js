@@ -29,14 +29,6 @@ angular.module('starter.controllers.PlayerSequencerController', [])
 
       $scope.stop( );
 
-      // for( var i = 0; i < $scope.tickNumber; i++ ) {
-      //
-      //   var unselector = '.' + i;
-      //
-      //   angular.element(unselector).removeClass('current');
-      //
-      // }
-
     } else {
 
       $scope.sequencer.play( $scope.animateLoop );
@@ -54,22 +46,6 @@ angular.module('starter.controllers.PlayerSequencerController', [])
     $timeout( function( ) {
 
       var selector = '.' + $scope.currentColumn;
-
-      // for( var i = 0; i < $scope.tickNumber; i++ ) {
-      //
-      //   var unselector = '.' + i;
-      //
-      //   if( unselector !== selector ) {
-      //
-      //     element(unselector).removeClass('current');
-      //
-      //   } else {
-      //
-      //     element(selector).addClass('current');
-      //
-      //   }
-      //
-      // }
 
       $scope.currentColumn = ( $scope.currentColumn + 1 ) % $scope.tickNumber;
 
