@@ -118,6 +118,10 @@
 
   transition: opacity .3s;
 
+  position: relative;
+
+  z-index: 999; /* Must be on top */
+
 }
 
 .ng-hide-remove, .ng-hide-remove {
@@ -155,7 +159,7 @@
 
   margin: auto;
 
-  font-size: 10rem;
+  font-size: 10em;
 
 }
 
@@ -168,5 +172,29 @@
 .match-message, .won-message {
 
   color: rgb(255, 49, 158);
+
+}
+
+@media  (max-width: 1400px) {
+
+  .won-message {
+    font-size: 8em;
+  }
+
+}
+
+@media  (max-width: 1125px) {
+
+  .won-message {
+    font-size: 6em;
+  }
+
+}
+
+@media  (max-width: 1000px) {
+
+  .won-message {
+    font-size: 3em;
+  }
 
 }
