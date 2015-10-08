@@ -118,6 +118,10 @@
 
   transition: opacity .3s;
 
+  position: relative;
+
+  z-index: 999; /* Must be on top */
+
 }
 
 .ng-hide-remove, .ng-hide-remove {
