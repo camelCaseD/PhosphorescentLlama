@@ -32,6 +32,14 @@ angular.module('starter.controllers.ViewController', [])
 
 	};
 
+	$scope.restartGame = function ( ) {
+
+		$rootScope.$broadcast('restartGame');
+
+		$scope.won = false;
+
+	};
+
 	$rootScope.$on( 'correctMatch', function ( ) {
 
 		$scope.declareMatch( );
