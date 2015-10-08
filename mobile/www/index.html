@@ -68,7 +68,7 @@
     <ion-nav-bar class="bar-stable">
       <ion-nav-buttons side="secondary">
         <div ng-controller="ActiveController">
-          <a class="button button-icon icon button-positive" ng-click="playerSequencerPlayToggle();playOrStop()" ng-class="{&apos;ion-play&apos;: playing, &apos;ion-pause&apos;: !playing}"></a>
+          <a class="button button-icon icon button-positive" ng-click="playerSequencerPlayToggle();playOrStop()" ng-class="{'ion-play': playing, 'ion-pause': !playing}"></a>
           <a class="button button-icon icon ion-headphone button-positive" ng-click="targetSequencerPlayToggle()"></a>
           <a class="button button-icon icon ion-checkmark button-positive" ng-click="submitMatch()"></a>
         </div>
