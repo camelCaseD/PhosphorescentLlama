@@ -1,8 +1,8 @@
 angular.module('starter.services.http', [])
 
 .factory( 'httpFactory', [ '$http', function ( $http ) {
-  // var url = 'https://ar-ngtzit.herokuapp.com';
-  var url = 'http://127.0.0.1:44100';
+  var url = 'https://ar-ngtzit.herokuapp.com';
+  // var url = 'http://127.0.0.1:44100';
 
   //Sends request to server and retrieves sequencer for given level
   var requests = {};
