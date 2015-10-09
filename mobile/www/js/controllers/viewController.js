@@ -8,6 +8,8 @@ angular.module('starter.controllers.ViewController', [])
 
 	$scope.match = false;
 
+	$scope.loading = false;
+
 	$scope.declareWrong = function ( ) {
 
 		$scope.wrong = true;
@@ -40,6 +42,18 @@ angular.module('starter.controllers.ViewController', [])
 
 	};
 
+	$scope.displayLoadingSpinner = function ( ) {
+
+		$scope.loading = true;
+
+	};
+
+	$scope.stopSpinner = function ( ) {
+
+		$scope.loading = false;
+
+	};
+
 	$rootScope.$on( 'correctMatch', function ( ) {
 
 		$scope.declareMatch( );
@@ -55,6 +69,18 @@ angular.module('starter.controllers.ViewController', [])
 	$rootScope.$on( 'playerWon' , function ( ) {
 
 		$scope.won = true;
+
+	});
+
+	$rootScope.$on( 'loading' , function ( ) {
+
+		$scope.displayLoadingSpinner( );
+
+	});
+
+	$rootScope.$on( 'loaded' , function ( ) {
+
+		$scope.stopSpinner( );
 
 	});
 
