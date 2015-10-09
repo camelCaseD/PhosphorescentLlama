@@ -80,11 +80,6 @@ angular.module('starter.controllers.GameController', [])
 
   $scope.playerWonLevel = function ( ) {
 
-    if( $scope.level !== $scope.lastLevel ) {
-
-      $scope.$emit( 'correctMatch' );
-
-    }
 
 
     if( $scope.level === $scope.lastLevel ) {
@@ -103,6 +98,7 @@ angular.module('starter.controllers.GameController', [])
 
       }
 
+      $scope.$emit( 'correctMatch' );
 
       $scope.startLevel( );
 
