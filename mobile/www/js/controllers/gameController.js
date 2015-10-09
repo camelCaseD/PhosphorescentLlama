@@ -99,8 +99,6 @@ angular.module('starter.controllers.GameController', [])
 
         $rootScope.user.level = $scope.level;
 
-        console.log($rootScope.user)
-
         httpFactory.updateLevel( $rootScope.user );
 
       }
