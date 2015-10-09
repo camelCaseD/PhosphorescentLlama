@@ -248,3 +248,47 @@
   background-color: rgb(253, 230, 0)
 
 }
+
+.level-selector {
+
+  position: relative;
+
+  font-size: 17px;
+
+  width: 155px;
+
+  color: #FF319E;
+
+  margin-top: 8px;
+
+}
+
+.level-selector a {
+
+  position: relative;
+
+  bottom: 8px;
+
+}
+
+.level-selector .info {
+
+  /*transform: translateY(10%);*/
+
+} 
+
+.platform-android .primary-buttons {
+
+  position: relative;
+
+  left: 235px;
+
+  transform: translateX(-50vw);
+
+}
+
+/*@media (min-width: 450px) {
+  .level-selector {
+    margin: 50px;
+  }
+}*/
