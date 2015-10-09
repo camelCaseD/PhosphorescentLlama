@@ -15,7 +15,6 @@ angular.module('starter', [
   'starter.directives.beatBox',
   'starter.controllers.ActiveController',
   'starter.controllers.GameController',
-  'starter.controllers.NavController',
   'starter.controllers.PlayerSequencerController',
   'starter.controllers.TargetSequencerController',
   'starter.controllers.ViewController'
