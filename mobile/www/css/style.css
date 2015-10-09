@@ -40,11 +40,15 @@
 .sequence.four {
 
   width: 100vw;
+
+  /*height: 328px !important;*/
 }
 
-.sequencer.eight {
+.sequence.eight {
 
   width: 100vw;
+
+  /*height: 144px !important;*/
 
 }
 
@@ -73,6 +77,8 @@
   background-color: #444;
 
   border: 1.5px solid #fd00ff;
+
+  transition: height .1s, width .1s, transform .1s;
 
 }
 
@@ -109,6 +115,18 @@
 .playing {
 
   opacity: .5;
+
+}
+
+.current {
+
+  width: 85%;
+
+  height: 85%;
+
+  /*bottom: 12.5%;*/
+
+  transform: translateY(-7.5%);
 
 }
 
