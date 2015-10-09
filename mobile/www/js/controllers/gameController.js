@@ -30,8 +30,10 @@ angular.module('starter.controllers.GameController', [])
 
   $scope.startLevel = function ( ) {
 
-    $scope.getSequencer( );
+    $scope.$emit( 'loading' );
 
+    $scope.getSequencer( );
+    
   };
 
   $scope.getSequencer = function ( ) {
@@ -41,6 +43,8 @@ angular.module('starter.controllers.GameController', [])
       $scope.$broadcast( 'createTargetSequencer', data );
 
       $scope.lastLevel = +data.headers( 'lastLevel' );
+
+      $scope.$emit( 'loaded' );
 
     });
 
