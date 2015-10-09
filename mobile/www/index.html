@@ -70,9 +70,9 @@
     <ion-nav-bar class="bar-stable">
       <ion-nav-buttons side="primary">
         <div class="level-selector" ng-controller="LevelSelectorController">
-          <a class="button button-icon icon button-positive ion-arrow-left-a"></a>
+          <a class="button button-icon icon button-positive ion-arrow-left-a" ng-click="selectPreviousLevel()"></a>
           Level: {{level}}
-          <a class="button button-icon icon button-positive ion-arrow-right-a"></a>
+          <a class="button button-icon icon button-positive ion-arrow-right-a" ng-click="selectNextLevel()"></a>
         </div>
       </ion-nav-buttons>
       <ion-nav-buttons side="secondary">
