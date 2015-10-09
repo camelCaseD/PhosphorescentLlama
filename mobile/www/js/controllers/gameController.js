@@ -100,6 +100,8 @@ angular.module('starter.controllers.GameController', [])
 
         $rootScope.user.level = $scope.level;
 
+        console.log($rootScope.user)
+
         httpFactory.updateLevel( $rootScope.user );
 
       }
@@ -178,6 +180,14 @@ angular.module('starter.controllers.GameController', [])
   $scope.$on( 'restartGame', function ( ) {
 
     $scope.level = 1;
+
+    $scope.startLevel();
+
+  });
+
+  $scope.$on( 'leveUpdated', function ( ) {
+
+    $scope.level = $rootScope.user.level;
 
     $scope.startLevel();
 
