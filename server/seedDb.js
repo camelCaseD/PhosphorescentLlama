@@ -102,34 +102,40 @@ var levels = [
     }
   },
   {
-    level: 2,
-    data: {
-      "tempo":"120",
-      "tickNumber":8,
-      "soundIDs":["kick","clap"],
-      "sequences":{
-        "kick":[
-          {"isOn":true},
-          {"isOn":false},
-          {"isOn":false},
-          {"isOn":false},
-          {"isOn":true},
-          {"isOn":true},
-          {"isOn":true},
-          {"isOn":false}
-        ],
-        "clap":[
-          {"isOn":false},
-          {"isOn":false},
-          {"isOn":true},
-          {"isOn":true},
-          {"isOn":false},
-          {"isOn":false},
-          {"isOn":false},
-          {"isOn":false}
-        ]
-      }
-    }
+    data:JSON.parse("{\"tempo\":\"120\",\"tickNumber\":4,\"soundIDs\":[\"kick\"],\"sequences\":{\"kick\":[{\"isOn\":true},{\"isOn\":true},{\"isOn\":false},{\"isOn\":true}]}}"),
+    level:2
+  },
+  {
+    data:JSON.parse("{\"tempo\":\"120\",\"tickNumber\":4,\"soundIDs\":[\"kick\"],\"sequences\":{\"kick\":[{\"isOn\":true},{\"isOn\":false},{\"isOn\":true},{\"isOn\":false}]}}"),
+    level:3
+  },
+  {
+    data:JSON.parse("{\"tempo\":\"120\",\"tickNumber\":4,\"soundIDs\":[\"kick\",\"lowTom\"],\"sequences\":{\"kick\":[{\"isOn\":true},{\"isOn\":false},{\"isOn\":true},{\"isOn\":false}],\"lowTom\":[{\"isOn\":false},{\"isOn\":false},{\"isOn\":false},{\"isOn\":true}]}}"),
+    level:4
+  },
+  {
+    data:JSON.parse("{\"tempo\":\"240\",\"tickNumber\":8,\"soundIDs\":[\"kick\",\"lowTom\"],\"sequences\":{\"kick\":[{\"isOn\":true},{\"isOn\":false},{\"isOn\":false},{\"isOn\":false},{\"isOn\":true},{\"isOn\":false},{\"isOn\":false},{\"isOn\":false}],\"lowTom\":[{\"isOn\":false},{\"isOn\":true},{\"isOn\":false},{\"isOn\":false},{\"isOn\":false},{\"isOn\":false},{\"isOn\":true},{\"isOn\":false}]}}"),
+    level:5
+  },
+  {
+    data:JSON.parse("{\"tempo\":\"240\",\"tickNumber\":8,\"soundIDs\":[\"kick\",\"lowTom\"],\"sequences\":{\"kick\":[{\"isOn\":true},{\"isOn\":true},{\"isOn\":false},{\"isOn\":false},{\"isOn\":true},{\"isOn\":true},{\"isOn\":false},{\"isOn\":false}],\"lowTom\":[{\"isOn\":false},{\"isOn\":false},{\"isOn\":true},{\"isOn\":false},{\"isOn\":false},{\"isOn\":false},{\"isOn\":false},{\"isOn\":true}]}}"),
+    level:6
+  },
+  {
+    data:JSON.parse("{\"tempo\":\"240\",\"tickNumber\":8,\"soundIDs\":[\"kick\",\"lowTom\",\"clap\"],\"sequences\":{\"kick\":[{\"isOn\":true},{\"isOn\":false},{\"isOn\":false},{\"isOn\":false},{\"isOn\":false},{\"isOn\":true},{\"isOn\":false},{\"isOn\":false}],\"lowTom\":[{\"isOn\":false},{\"isOn\":false},{\"isOn\":true},{\"isOn\":false},{\"isOn\":false},{\"isOn\":false},{\"isOn\":false},{\"isOn\":true}],\"clap\":[{\"isOn\":false},{\"isOn\":false},{\"isOn\":false},{\"isOn\":true},{\"isOn\":false},{\"isOn\":false},{\"isOn\":true},{\"isOn\":false}]}}"),
+    level:7
+  },
+  {
+    data:JSON.parse("{\"tempo\":\"240\",\"tickNumber\":8,\"soundIDs\":[\"kick\",\"lowTom\",\"clap\"],\"sequences\":{\"kick\":[{\"isOn\":true},{\"isOn\":false},{\"isOn\":false},{\"isOn\":false},{\"isOn\":true},{\"isOn\":false},{\"isOn\":false},{\"isOn\":false}],\"lowTom\":[{\"isOn\":false},{\"isOn\":false},{\"isOn\":true},{\"isOn\":false},{\"isOn\":false},{\"isOn\":false},{\"isOn\":false},{\"isOn\":true}],\"clap\":[{\"isOn\":false},{\"isOn\":false},{\"isOn\":false},{\"isOn\":true},{\"isOn\":false},{\"isOn\":true},{\"isOn\":true},{\"isOn\":false}]}}"),
+    level:8
+  },
+  {
+    data:JSON.parse("{\"tempo\":\"240\",\"tickNumber\":8,\"soundIDs\":[\"kick\",\"lowTom\",\"clap\"],\"sequences\":{\"kick\":[{\"isOn\":false},{\"isOn\":false},{\"isOn\":false},{\"isOn\":false},{\"isOn\":false},{\"isOn\":false},{\"isOn\":true},{\"isOn\":false}],\"lowTom\":[{\"isOn\":false},{\"isOn\":true},{\"isOn\":false},{\"isOn\":true},{\"isOn\":false},{\"isOn\":true},{\"isOn\":false},{\"isOn\":false}],\"clap\":[{\"isOn\":true},{\"isOn\":false},{\"isOn\":true},{\"isOn\":false},{\"isOn\":true},{\"isOn\":false},{\"isOn\":false},{\"isOn\":false}]}}"),
+    level:9
+  },
+  {
+    data:JSON.parse("{\"tempo\":\"240\",\"tickNumber\":8,\"soundIDs\":[\"kick\",\"lowTom\",\"clap\"],\"sequences\":{\"kick\":[{\"isOn\":true},{\"isOn\":false},{\"isOn\":false},{\"isOn\":false},{\"isOn\":false},{\"isOn\":true},{\"isOn\":false},{\"isOn\":false}],\"lowTom\":[{\"isOn\":false},{\"isOn\":false},{\"isOn\":false},{\"isOn\":true},{\"isOn\":false},{\"isOn\":false},{\"isOn\":false},{\"isOn\":true}],\"clap\":[{\"isOn\":false},{\"isOn\":false},{\"isOn\":true},{\"isOn\":false},{\"isOn\":true},{\"isOn\":false},{\"isOn\":false},{\"isOn\":true}]}}"),
+    level:10
   }
 ];
 
