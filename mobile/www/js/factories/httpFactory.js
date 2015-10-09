@@ -1,13 +1,15 @@
 angular.module('starter.services.http', [])
 
 .factory( 'httpFactory', [ '$http', function ( $http ) {
+  var url = 'https://ar-ngtzit.herokuapp.com';
+  // var url = 'http://127.0.0.1:44100';
 
   //Sends request to server and retrieves sequencer for given level
   var requests = {};
 
   requests.getSequencer = function ( level, callback ) {
 
-    return $http.get( 'https://ar-ngtzit.herokuapp.com/levels/' + level.toString( ) )
+    return $http.get( url + '/levels/' + level.toString( ) )
 
       .then( function( response ) {
 
@@ -23,7 +25,7 @@ angular.module('starter.services.http', [])
 
   requests.postSequencer = function ( level, stringifiedSequencer, callback ) {
 
-    return $http.post( 'https://ar-ngtzit.herokuapp.com/levels/', { level: level, data: stringifiedSequencer } )
+    return $http.post( url + '/levels/', { level: level, data: stringifiedSequencer } )
 
       .then( function ( response ) {
 
@@ -39,7 +41,7 @@ angular.module('starter.services.http', [])
 
   requests.putSequencer = function ( level, stringifiedSequencer, callback ) {
 
-    return $http.put( 'https://ar-ngtzit.herokuapp.com/levels/', { level: level, data: stringifiedSequencer } )
+    return $http.put( url + '/levels/', { level: level, data: stringifiedSequencer } )
 
       .then( function ( response ) {
 
@@ -55,7 +57,7 @@ angular.module('starter.services.http', [])
 
   requests.loginUser = function ( user, callback ) {
 
-    return $http.post( 'https://ar-ngtzit.herokuapp.com/login', { username: user.username, password: user.password } )
+    return $http.post( url + '/login', { username: user.username, password: user.password } )
 
       .then( function ( response ) {
 
@@ -71,7 +73,7 @@ angular.module('starter.services.http', [])
 
   requests.signupUser = function ( user, callback ) {
 
-    return $http.post( 'https://ar-ngtzit.herokuapp.com/signup', { username: user.username, password: user.password } )
+    return $http.post( url + '/signup', { username: user.username, password: user.password } )
 
       .then( function ( response ) {
 
@@ -88,7 +90,7 @@ angular.module('starter.services.http', [])
   //TERRIBLY NAMED - THIS UPDATES A USER'S BEST LEVEL, NOT THE LEVEL ITSELF
   requests.updateLevel = function ( user, callback ) {
 
-    return $http.put( 'https://ar-ngtzit.herokuapp.com/users', { username: user.username, level: user.level } )
+    return $http.put( url + '/users', { username: user.username, level: user.level } )
 
       .then( function ( response ) {
 
@@ -104,7 +106,7 @@ angular.module('starter.services.http', [])
 
   requests.getUser = function ( callback ) {
 
-    return $http.get( 'https://ar-ngtzit.herokuapp.com/users' )
+    return $http.get( url + '/users' )
 
       .then( function ( response ) {
 
@@ -120,7 +122,7 @@ angular.module('starter.services.http', [])
 
   requests.logout = function ( callback ) {
 
-    return $http.post( 'https://ar-ngtzit.herokuapp.com/logout' )
+    return $http.post( url + '/logout' )
 
       .then( function ( response ) {
 

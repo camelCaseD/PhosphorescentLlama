@@ -36,7 +36,7 @@ angular.module('starter', [
   });
 })
 
-.run(function(httpFactory, $localstorage) {
+.run(function(httpFactory, $localstorage, $rootScope, $location) {
 
   // https://blog.nraboy.com/2015/03/create-a-random-nonce-string-using-javascript/
   var randomString = function(length) {
@@ -55,17 +55,27 @@ angular.module('starter', [
       username: randomString(6),
       password: randomString(6)
     }
-    console.log(user);
     // use httpFactory.signupUser({username:ad;slfkjads, password: as;dlfkjas;d})
-    httpFactory.signupUser(user, function(response) {
+    httpFactory.signupUser(user, function ( response ) {
       $localstorage.setObject('user', user);
-      console.log('attempted to create user', response);
+      $rootScope.user = {};
+      $rootScope.user.level = 1;
+      $rootScope.user.username = response.headers( 'username' );
+      if( response.status === 200 ) {
+        $location.path( response.data );
+      }
     });
+
   } else {
-    //login to user
-    console.log(user);
-    httpFactory.loginUser(user, function(response) {
-      console.log('attempted to login', response);
+    // login to user
+    // console.log(user);
+    httpFactory.loginUser(user, function ( response ) {
+      $rootScope.user = {};
+      if( response.status === 200 ) {
+        $rootScope.user.username = response.headers( 'username' );
+        $rootScope.user.level = parseInt(response.headers( 'level' ));
+        $rootScope.$broadcast('userLoggedIn');
+      }
     });
   }
 
