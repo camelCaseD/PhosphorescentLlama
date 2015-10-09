@@ -255,7 +255,7 @@
 
   font-size: 17px;
 
-  width: 155px;
+  width: 163px;
 
   color: #FF319E;
 
@@ -271,24 +271,12 @@
 
 }
 
-.level-selector .info {
-
-  /*transform: translateY(10%);*/
-
-} 
-
 .platform-android .primary-buttons {
 
   position: relative;
 
-  left: 235px;
+  left: 239px;
 
   transform: translateX(-50vw);
 
 }
-
-/*@media (min-width: 450px) {
-  .level-selector {
-    margin: 50px;
-  }
-}*/
