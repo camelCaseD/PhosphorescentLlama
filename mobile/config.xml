@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.mobile482715" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>mobile</name>
+  <name>ngtzit</name>
   <description>
-        An Ionic Framework and Cordova project.
-    </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
-    </author>
+    A music game. In which your try to mach the beat against the music.
+  </description>
+  <author email="amused.rutabega@gmail.com" href="http://github.com/amused-rutabega">
+      Amused Rutabega Team
+  </author>
+  <author email="" href="http://github.com/PhosphorentLlama">
+      Phosphorent Llama Team
+  </author>
   <content src="index.html"/>
   <access origin="*"/>
   <preference name="orientation" value="landscape"/>
