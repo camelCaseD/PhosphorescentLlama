@@ -51,7 +51,7 @@ angular.module('starter', [
 
   //if user hasn't been created, create one
   var user = $localstorage.getObject('user');
-  if(!user) {
+  if(!user.username) {
     var user = {
       username: randomString(6),
       password: randomString(6)
