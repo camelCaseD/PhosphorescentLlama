@@ -39,7 +39,8 @@ app.use(function(req, res, next) {
   
   res.set( {
     'Access-Control-Allow-Origin': '*',
-    'Access-Control-Expose-Headers': 'lastLevel',
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE',
+    'Access-Control-Expose-Headers': 'lastLevel, username, level',
     'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept' 
   } );
 
