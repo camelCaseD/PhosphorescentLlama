@@ -1,7 +1,6 @@
 angular.module('starter.controllers.GameController', [])
 
 .controller( 'GameController' , [ '$scope', 'playerSequencer', 'httpFactory', 'initialize', '$rootScope', '$timeout', function ( $scope, playerSequencer, httpFactory, initialize, $rootScope, $timeout ) {
-  
 
   /////////////////
   //
@@ -185,11 +184,16 @@ angular.module('starter.controllers.GameController', [])
 
   });
 
-  $scope.$on( 'leveUpdated', function ( ) {
+  $scope.$on( 'userLoggedIn', function ( ) {
 
-    $scope.level = $rootScope.user.level;
 
-    $scope.startLevel();
+    // console.log($rootScope.user.level, 'in userLoggedIn');
+    if ( $rootScope.user.level ) {
+      $scope.$broadcast( 'targetStopPlaying' );
+      $scope.level = $rootScope.user.level;
+      $scope.startLevel();
+    }
+
 
   });
 

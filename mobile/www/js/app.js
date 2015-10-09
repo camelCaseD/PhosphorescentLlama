@@ -58,7 +58,6 @@ angular.module('starter', [
     // use httpFactory.signupUser({username:ad;slfkjads, password: as;dlfkjas;d})
     httpFactory.signupUser(user, function ( response ) {
       $localstorage.setObject('user', user);
-      console.log(response, 'response for signupUser');
       $rootScope.user = {};
       $rootScope.user.level = 1;
       $rootScope.user.username = response.headers( 'username' );
@@ -69,14 +68,13 @@ angular.module('starter', [
 
   } else {
     // login to user
-    console.log(user);
+    // console.log(user);
     httpFactory.loginUser(user, function ( response ) {
-      console.log(response.headers( 'username' ), 'headers for username at loginUser');
       $rootScope.user = {};
       if( response.status === 200 ) {
         $rootScope.user.username = response.headers( 'username' );
-        $rootScope.user.level = response.headers( 'level' );
-        $location.path( response.data );
+        $rootScope.user.level = parseInt(response.headers( 'level' ));
+        $rootScope.$broadcast('userLoggedIn');
       }
     });
   }
