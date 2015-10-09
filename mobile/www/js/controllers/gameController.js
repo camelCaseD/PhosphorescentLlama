@@ -42,7 +42,7 @@ angular.module('starter.controllers.GameController', [])
 
       $scope.$broadcast( 'createTargetSequencer', data );
 
-      $scope.lastLevel = +data.headers( 'lastLevel' );
+      $rootScope.lastLevel = +data.headers( 'lastLevel' );
 
       $scope.$emit( 'loaded' );
 
@@ -84,11 +84,6 @@ angular.module('starter.controllers.GameController', [])
 
   $scope.playerWonLevel = function ( ) {
 
-    if( $scope.level !== $scope.lastLevel ) {
-
-      $scope.$emit( 'correctMatch' );
-
-    }
 
 
     if( $scope.level === $scope.lastLevel ) {
@@ -107,6 +102,7 @@ angular.module('starter.controllers.GameController', [])
 
       }
 
+      $scope.$emit( 'correctMatch' );
 
       $scope.startLevel( );
 
@@ -178,6 +174,18 @@ angular.module('starter.controllers.GameController', [])
 
   });
 
+  $scope.$on( 'changeLevel', function ( e, level ) {
+
+    $scope.level = level;
+
+    $scope.$broadcast( 'targetStopPlaying' );
+
+    $scope.$broadcast( 'playerStopPlaying' );
+
+    $scope.startLevel();
+
+  });
+
   $scope.$on( 'restartGame', function ( ) {
 
     $scope.level = 1;
@@ -188,12 +196,17 @@ angular.module('starter.controllers.GameController', [])
 
   $scope.$on( 'userLoggedIn', function ( ) {
 
-
     // console.log($rootScope.user.level, 'in userLoggedIn');
     if ( $rootScope.user.level ) {
+
       $scope.$broadcast( 'targetStopPlaying' );
+
+      $scope.$broadcast( 'playerStopPlaying' );
+
       $scope.level = $rootScope.user.level;
+
       $scope.startLevel();
+
     }
 
 

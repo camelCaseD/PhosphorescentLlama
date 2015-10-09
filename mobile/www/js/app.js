@@ -14,6 +14,7 @@ angular.module('starter', [
   'starter.services.init',
   'starter.directives.beatBox',
   'starter.controllers.ActiveController',
+  'starter.controllers.LevelSelectorController',
   'starter.controllers.GameController',
   'starter.controllers.PlayerSequencerController',
   'starter.controllers.TargetSequencerController',

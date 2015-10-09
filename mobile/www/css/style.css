@@ -281,3 +281,35 @@
   background-color: rgb(253, 230, 0)
 
 }
+
+.level-selector {
+
+  position: relative;
+
+  font-size: 17px;
+
+  width: 173px;
+
+  color: #FF319E;
+
+  margin-top: 8px;
+
+}
+
+.level-selector a {
+
+  position: relative;
+
+  bottom: 8px;
+
+}
+
+.platform-android .primary-buttons {
+
+  position: relative;
+
+  left: 244px;
+
+  transform: translateX(-50vw);
+
+}

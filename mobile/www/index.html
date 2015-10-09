@@ -28,6 +28,7 @@
     <script src="js/app.js"></script>
 
     <script src="js/controllers/activeController.js"></script>
+    <script src="js/controllers/levelSelectorController.js"></script>
     <script src="js/controllers/gameController.js"></script>
     <script src="js/controllers/playerSequencerController.js"></script>
     <script src="js/controllers/targetSequencerController.js"></script>
@@ -68,6 +69,13 @@
       The nav bar that will be updated as we navigate between views.
     -->
     <ion-nav-bar class="bar-stable">
+      <ion-nav-buttons side="primary">
+        <div class="level-selector" ng-controller="LevelSelectorController">
+          <a class="button button-icon icon button-positive ion-arrow-left-a" ng-click="selectPreviousLevel()"></a>
+          Level: {{level}}
+          <a class="button button-icon icon button-positive ion-arrow-right-a" ng-click="selectNextLevel()"></a>
+        </div>
+      </ion-nav-buttons>
       <ion-nav-buttons side="secondary">
         <div ng-controller="ActiveController">
           <a class="button button-icon icon button-positive" ng-click="playerSequencerPlayToggle();playOrStop()" ng-class="{'ion-play': playing, 'ion-pause': !playing}"></a>
